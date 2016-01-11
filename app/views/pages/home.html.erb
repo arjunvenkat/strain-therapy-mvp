@@ -1,0 +1,41 @@
+
+
+<div class="jumbotron">
+  <div class="container">
+    <h2>Medical Cannabis Has Been Used In Treating Ailments For 10,000 Years.</h2>
+    <h3>1. Learn How and Why Cannabis is Efffective in Treating These Ailments.</h3>
+    <h3>2. Journal Your Reviews for Future Reference and Quick Orders.</h3>
+    <h3>3. Discover New Strains From Other Member Reviews of Ailment Treatments.</h3>
+    <div class="row spacer-2">
+      <div class="col-md-6">
+        <input type="text" class="form-control" placeholder="Search for ailments">
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+      <div class="ailments">
+        <ul class="ailments">
+          <% Ailment.limit(10).each do |ailment| %>
+          <li>
+            <div class="ailment-name">
+              <a href="<%= ailment_path(ailment) %>" class="ailment-name"><%= ailment.name %></a>
+            </div>
+          </li>
+          <% end %>
+        </ul>
+
+
+      </div>
+
+    </div>
+  </div>
+  <div class="row spacer">
+    <div class="col-md-10 col-md-offset-1">
+      <a href="#" class="btn btn-default">Load more ailments</a>
+    </div>
+
+  </div>
+</div>

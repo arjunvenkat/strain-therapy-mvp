@@ -1,0 +1,2 @@
+module UserAilmentsHelper
+end

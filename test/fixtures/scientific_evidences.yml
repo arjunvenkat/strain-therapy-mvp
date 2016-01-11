@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ailment_id: 1
+  description: MyText
+  link: MyString
+  featured: false
+  comment: MyText
+
+two:
+  ailment_id: 1
+  description: MyText
+  link: MyString
+  featured: false
+  comment: MyText

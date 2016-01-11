@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Ailment:</strong>
+  <%= @scientific_evidence.ailment_id %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @scientific_evidence.description %>
+</p>
+
+<p>
+  <strong>Link:</strong>
+  <%= @scientific_evidence.link %>
+</p>
+
+<p>
+  <strong>Featured:</strong>
+  <%= @scientific_evidence.featured %>
+</p>
+
+<p>
+  <strong>Comment:</strong>
+  <%= @scientific_evidence.comment %>
+</p>
+
+<%= link_to 'Edit', edit_scientific_evidence_path(@scientific_evidence) %> |
+<%= link_to 'Back', scientific_evidences_path %>

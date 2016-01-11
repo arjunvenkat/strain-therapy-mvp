@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  description: MyText
+  category: MyString
+  thc: 1.5
+  cbd: 1.5
+  cbc: 1.5
+  cbn: 1.5
+
+two:
+  name: MyString
+  description: MyText
+  category: MyString
+  thc: 1.5
+  cbd: 1.5
+  cbc: 1.5
+  cbn: 1.5

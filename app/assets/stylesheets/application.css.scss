@@ -1,0 +1,195 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "font-awesome";
+
+$primary-color: #006E4B;
+
+
+nav{
+  padding: 10px;
+  border-bottom: 2px solid gray;
+}
+
+ul{
+  list-style: none;
+}
+
+.top-text{
+  padding-top: 10px;
+  display: inline-block;
+  font-size: 16px;
+  width: 1000px;
+  text-align: left;
+  padding-left: 125px;
+  vertical-align: top;
+}
+
+.ailment-landing{
+  display: inline-block;
+  width: 600px;
+  text-align: left;
+  vertical-align: top;
+}
+
+.ailment-name{
+  background-color: $primary-color;
+  line-height: 175px;
+  width: 175px;
+  height: 175px;
+  float: left;
+  text-align: center;
+  color: white;
+  border-radius: 100%;
+  &:hover, &:visited, &:focus {
+    color: white;
+    text-decoration: none;
+  }
+  &:hover {
+    background-color: darken($primary-color, 10%)
+  }
+}
+
+.spacer {
+  margin-top: 1em;
+}
+
+.spacer-2 {
+  margin-top: 2em;
+}
+
+
+.main-logo {
+  width: 20%;
+}
+
+.left-column{
+  display: inline-block;
+  width: 200px;
+  text-align: center;
+  vertical-align: top;
+}
+
+.right-column{
+  display: inline-block;
+  width: 795px;
+  margin: 25px;
+}
+
+.inline-name {
+  color: $primary-color;
+}
+
+.ailment{
+  background-color: $primary-color;
+  color: white;
+  line-height: 180px;
+  border-radius: 100%;
+  .ailment-name {
+    margin-top: 0;
+    font-size: 2em;
+  }
+}
+
+.set-ailment{
+  display: inline-block;
+  text-decoration: none;
+  color: black;
+  border-bottom: 3px solid gray;
+  padding: 10px;
+  border-radius: 3px;
+  background-color: lightgray;
+  cursor: pointer;
+}
+
+.set-ailment:active{
+  display: inline-block;
+  margin-top: 3px;
+  border-bottom: none;
+}
+
+.description{
+  display: inline-block;
+  width: 795px;
+  margin: 15px;
+}
+
+.effective-strains{
+  width: 200px;
+}
+
+.strains{
+  padding-left: 0px;
+}
+
+.strain-box{
+  display: inline-block;
+  vertical-align: top;
+  width: 75px;
+  font-size: 12px;
+  margin-top: 5px;
+  cursor: pointer;
+}
+
+.strain-type{
+  background-color: lavender;
+  padding: 3px;
+}
+
+.strain-name{
+  background-color: lightgreen;
+  height: 60px;
+  line-height: 50px;
+}
+
+.info{
+  border: 1px solid black;
+  margin-top: 5px;
+  padding: 10px;
+}
+
+.review-module{
+  margin: 15px 10px;
+}
+
+
+
+/** Ailment show page **/
+
+.ailment-name-alt {
+  height: 165px;
+  max-width: 165px;
+  line-height: 165px;
+  text-align: center;
+  color: white;
+  font-size: 2em;
+  border-radius: 50%;
+  background-color: $primary-color;
+  margin: 0 auto;
+}
+
+.panel h3 {
+  margin-top: 0.3em;
+}
+
+.review {
+  h3 {
+    margin-top: 0;
+  }
+}
+

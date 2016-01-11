@@ -1,0 +1,2 @@
+module ScientificEvidencesHelper
+end

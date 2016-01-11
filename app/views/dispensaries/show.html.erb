@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @dispensary.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @dispensary.description %>
+</p>
+
+<%= link_to 'Edit', edit_dispensary_path(@dispensary) %> |
+<%= link_to 'Back', dispensaries_path %>
