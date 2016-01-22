@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
+  root to: "pages#home"
   get 'pages/home'
 
   resources :reviews
   resources :user_ailments
   devise_for :users
-  root to: "pages#home"
+  get 'users/:id' => 'users#show', as: :user
   resources :products
   resources :dispensaries
   resources :scientific_evidences

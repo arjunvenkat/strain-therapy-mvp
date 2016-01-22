@@ -4,7 +4,7 @@ class CreateScientificEvidences < ActiveRecord::Migration
       t.integer :ailment_id
       t.text :description
       t.string :link
-      t.boolean :featured
+      t.boolean :featured, default: false
       t.text :comment
 
       t.timestamps null: false

@@ -14,7 +14,7 @@ class ScientificEvidencesController < ApplicationController
 
   # GET /scientific_evidences/new
   def new
-    @scientific_evidence = ScientificEvidence.new
+    @scientific_evidence = ScientificEvidence.new(ailment_id: params[:ailment_id])
   end
 
   # GET /scientific_evidences/1/edit
@@ -28,7 +28,7 @@ class ScientificEvidencesController < ApplicationController
 
     respond_to do |format|
       if @scientific_evidence.save
-        format.html { redirect_to @scientific_evidence, notice: 'Scientific evidence was successfully created.' }
+        format.html { redirect_to @scientific_evidence.ailment, notice: 'Scientific evidence was successfully created.' }
         format.json { render :show, status: :created, location: @scientific_evidence }
       else
         format.html { render :new }

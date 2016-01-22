@@ -1,0 +1,39 @@
+
+<h1>
+  <%= @user.username %>'s ailment journal
+  <small><%= link_to "edit user info", edit_user_registration_path %></small>
+</h1>
+
+<div class="row">
+  <% @user.user_ailments.each do |uailment| %>
+    <div class="col-md-4">
+      <h3><%= uailment.ailment.short_name %></h3>
+      <div class="list-group">
+      <% uailment.reviews.limit(4).each do |review|%>
+        <%= link_to review, class: 'list-group-item' do %>
+          <h4><%= review.product.name %></h4>
+          <div><%= time_ago_in_words(review.created_at) %> ago</div>
+          <%= select_tag :effectiveness, options_for_select(EFFECTIVENESS_RATINGS, review.effectiveness), class: 'rating' %>
+        <% end %>
+      <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <h2>Highest rated products</h2>
+    <div class="list-group list-group-horizontal">
+      <% @user.reviews_by_rating.limit(8).each do |review| %>
+        <%= link_to review.product, class: 'list-group-item list-group-horizontal' do %>
+          <h4><%= review.product.name %></h4>
+          <div>for <%= review.ailment.name %></div>
+          <div><small><%= review.product.description %></small></div>
+          <%= select_tag :effectiveness, options_for_select(EFFECTIVENESS_RATINGS, review.effectiveness), class: 'rating' %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+
+</div>
+

@@ -45,4 +45,17 @@
   .br-theme-bars-reversed .br-widget .br-current-rating {
     color: black;
   }
+
+}
+
+/* Extensions */
+
+.list-group-item .br-theme-bars-reversed .br-widget .br-current-rating {
+  padding-left: 0;
+  font-size: 0.8em;
+}
+
+.list-group-item .br-theme-bars-reversed .br-widget a {
+  width: 16px;
+  height: 16px;
 }

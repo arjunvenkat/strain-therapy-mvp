@@ -21,7 +21,7 @@
           <% Ailment.limit(10).each do |ailment| %>
           <li>
             <div class="ailment-name">
-              <a href="<%= ailment_path(ailment) %>" class="ailment-name"><%= ailment.name %></a>
+              <a href="<%= ailment_path(ailment) %>" class="ailment-name"><%= ailment.short_name %></a>
             </div>
           </li>
           <% end %>

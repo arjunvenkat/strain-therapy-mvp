@@ -11,13 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160111134508) do
+ActiveRecord::Schema.define(version: 20160119173842) do
 
   create_table "ailments", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.string   "link"
   end
 
   create_table "dispensaries", force: :cascade do |t|
@@ -37,6 +38,7 @@ ActiveRecord::Schema.define(version: 20160111134508) do
     t.float    "cbn"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.string   "strain_type"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -57,10 +59,10 @@ ActiveRecord::Schema.define(version: 20160111134508) do
     t.integer  "ailment_id"
     t.text     "description"
     t.string   "link"
-    t.boolean  "featured"
+    t.boolean  "featured",    default: false
     t.text     "comment"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
   end
 
   create_table "user_ailments", force: :cascade do |t|

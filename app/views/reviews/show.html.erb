@@ -1,49 +1,14 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <h1>Review for <%= @review.ailment.name %></h1>
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <%= render 'single_review', review: @review, context: 'ailment' %>
+      </div>
+    </div>
 
-<p>
-  <strong>User:</strong>
-  <%= @review.user_id %>
-</p>
 
-<p>
-  <strong>Ailment:</strong>
-  <%= @review.ailment_id %>
-</p>
-
-<p>
-  <strong>Product:</strong>
-  <%= @review.product_id %>
-</p>
-
-<p>
-  <strong>Method:</strong>
-  <%= @review.method %>
-</p>
-
-<p>
-  <strong>Amount:</strong>
-  <%= @review.amount %>
-</p>
-
-<p>
-  <strong>Effectiveness:</strong>
-  <%= @review.effectiveness %>
-</p>
-
-<p>
-  <strong>Positives:</strong>
-  <%= @review.positives %>
-</p>
-
-<p>
-  <strong>Negatives:</strong>
-  <%= @review.negatives %>
-</p>
-
-<p>
-  <strong>Additional info:</strong>
-  <%= @review.additional_info %>
-</p>
-
-<%= link_to 'Edit', edit_review_path(@review) %> |
-<%= link_to 'Back', reviews_path %>
+    <%= link_to 'Edit', edit_review_path(@review) %> |
+    <%= link_to 'Back', :back %>
+  </div>
+</div>

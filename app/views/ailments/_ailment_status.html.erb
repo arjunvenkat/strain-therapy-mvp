@@ -1,0 +1,16 @@
+<div class="spacer">
+  <% user_ailment = UserAilment.find_by(user_id: current_user.id, ailment_id: ailment.id) %>
+  <% if user_ailment %>
+    <%= link_to user_ailment_path(user_ailment), class: 'btn btn-danger btn-block', method: :delete do %>
+      <i class="fa fa-times"></i> Remove ailment
+    <% end %>
+  <% else %>
+    <%= form_for(UserAilment.new) do |f| %>
+      <%= f.hidden_field :user_id, value: current_user.id %>
+      <%= f.hidden_field :ailment_id, value: ailment.id %>
+      <%= button_tag(type: 'submit', class: "btn btn-default btn-block") do %>
+       <i class="fa fa-plus"></i> Add ailment
+      <% end %>
+    <% end %>
+  <% end %>
+</div>

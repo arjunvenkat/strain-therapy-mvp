@@ -20,11 +20,27 @@
 
 $primary-color: #006E4B;
 
+/** Global **/
+
+.alert {
+  margin-bottom: 0;
+  border-radius: 0;
+}
 
 nav{
   padding: 10px;
   border-bottom: 2px solid gray;
 }
+
+.navbar {
+  margin-bottom: 0;
+}
+
+.navbar-nav li a {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
 
 ul{
   list-style: none;
@@ -56,6 +72,7 @@ ul{
   text-align: center;
   color: white;
   border-radius: 100%;
+  font-size: 1.3em;
   &:hover, &:visited, &:focus {
     color: white;
     text-decoration: none;
@@ -63,6 +80,10 @@ ul{
   &:hover {
     background-color: darken($primary-color, 10%)
   }
+}
+
+.spacer-sm {
+  margin-top: 0.5em;
 }
 
 .spacer {
@@ -191,5 +212,103 @@ ul{
   h3 {
     margin-top: 0;
   }
+}
+
+.top-rated-products .list-group-item {
+  padding-bottom: 1em;
+}
+
+
+.product-category-icon {
+  width: 20px;
+  height: 20px;
+  text-align: center;
+}
+
+.product-category-icon.flowers {
+  background-color: white;
+  border: 1px solid gray;
+}
+
+.product-category-icon.concentrates {
+  background-color: lightgray;
+}
+
+.product-category-icon.edibles {
+  background-color: black;
+  color: white;
+}
+
+
+
+/** Products **/
+
+.product-container {
+  h1 {
+    margin-top: 0;
+  }
+}
+
+.product-category-box {
+  width: 100%;
+  padding-top: 70px;
+  padding-bottom: 70px;
+  text-align: center;
+  font-size: 1.5em;
+}
+
+.product-category-box.concentrates {
+  background-color: lightgray;
+}
+
+.product-category-box.flowers {
+  background-color: white;
+  border: 1px solid gray;
+}
+
+.product-category-box.edibles {
+  background-color: black;
+  color: white;
+}
+
+.chemical-content {
+  background-color: lighten(lightgray, 10%);
+  text-align: center;
+  padding-top: 1em;
+  padding-bottom: 1.5em;
+  .number {
+    font-size: 4em;
+  }
+}
+
+
+/** Bootstrap extensions **/
+
+.list-group-horizontal .list-group-item {
+    display: inline-block;
+}
+.list-group-horizontal .list-group-item {
+  margin-bottom: 0;
+  margin-left:-4px;
+  margin-right: 0;
+}
+.list-group-horizontal .list-group-item:first-child {
+  border-top-right-radius:0;
+  border-bottom-left-radius:4px;
+}
+.list-group-horizontal .list-group-item:last-child {
+  border-top-right-radius:4px;
+  border-bottom-left-radius:0;
+}
+
+.panel-evidence {
+  background-color: rgba($primary-color, 0.2)
+}
+
+.btn.btn-evidence {
+  color: black;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  background-color: rgba($primary-color, 0.2)
 }
 

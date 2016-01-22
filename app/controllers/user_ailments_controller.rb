@@ -28,7 +28,7 @@ class UserAilmentsController < ApplicationController
 
     respond_to do |format|
       if @user_ailment.save
-        format.html { redirect_to @user_ailment, notice: 'User ailment was successfully created.' }
+        format.html { redirect_to @user_ailment.ailment, notice: "You successfully added #{@user_ailment.ailment.name} as an ailment" }
         format.json { render :show, status: :created, location: @user_ailment }
       else
         format.html { render :new }
@@ -56,7 +56,7 @@ class UserAilmentsController < ApplicationController
   def destroy
     @user_ailment.destroy
     respond_to do |format|
-      format.html { redirect_to user_ailments_url, notice: 'User ailment was successfully destroyed.' }
+      format.html { redirect_to @user_ailment.ailment, notice: "You successfully removed #{@user_ailment.ailment.name} as an ailment" }
       format.json { head :no_content }
     end
   end
