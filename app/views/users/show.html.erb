@@ -1,31 +1,41 @@
 
 <h1>
-  <%= @user.username %>'s ailment journal
+  <%= @user.username %>'s profile
   <small><%= link_to "edit user info", edit_user_registration_path %></small>
 </h1>
 
 <div class="row">
-  <% @user.user_ailments.each do |uailment| %>
-    <div class="col-md-4">
-      <h3><%= uailment.ailment.short_name %></h3>
-      <div class="list-group">
-      <% uailment.reviews.limit(4).each do |review|%>
-        <%= link_to review, class: 'list-group-item' do %>
-          <h4><%= review.product.name %></h4>
-          <div><%= time_ago_in_words(review.created_at) %> ago</div>
-          <%= select_tag :effectiveness, options_for_select(EFFECTIVENESS_RATINGS, review.effectiveness), class: 'rating' %>
-        <% end %>
-      <% end %>
+  <div class="col-md-4">
+    <h2>Ailment journal</h2>
+    <%= form_for(UserAilment.new, url: from_profile_user_ailments_path) do |f| %>
+      <div>Add an ailment</div>
+      <%= f.hidden_field :user_id, value: @user.id %>
+      <div class="form-group">
+        <%= f.collection_select :ailment_id, Ailment.all, :id, :name, {}, class: 'form-control' %>
       </div>
-    </div>
-  <% end %>
-</div>
-<div class="row">
-  <div class="col-md-12">
+      <div class="form-group">
+        <%= f.submit "Add ailment", class: 'btn btn-default' %>
+      </div>
+    <% end %>
+    <% @user.user_ailments.each do |uailment| %>
+        <h3><%= uailment.ailment.short_name %></h3>
+        <div class="list-group">
+        <% uailment.reviews.limit(4).each do |review|%>
+          <%= link_to review, class: 'list-group-item' do %>
+            <h4><%= review.product.name %></h4>
+            <div><%= time_ago_in_words(review.created_at) %> ago</div>
+            <%= select_tag :effectiveness, options_for_select(EFFECTIVENESS_RATINGS, review.effectiveness), class: 'rating' %>
+          <% end %>
+        <% end %>
+        </div>
+    <% end %>
+
+  </div>
+  <div class="col-md-4">
     <h2>Highest rated products</h2>
-    <div class="list-group list-group-horizontal">
+    <div class="list-group">
       <% @user.reviews_by_rating.limit(8).each do |review| %>
-        <%= link_to review.product, class: 'list-group-item list-group-horizontal' do %>
+        <%= link_to review.product, class: 'list-group-item' do %>
           <h4><%= review.product.name %></h4>
           <div>for <%= review.ailment.name %></div>
           <div><small><%= review.product.description %></small></div>

@@ -50,12 +50,12 @@
 
 /* Extensions */
 
-.list-group-item .br-theme-bars-reversed .br-widget .br-current-rating {
+.top-rated-products .br-theme-bars-reversed .br-widget .br-current-rating {
   padding-left: 0;
   font-size: 0.8em;
 }
 
-.list-group-item .br-theme-bars-reversed .br-widget a {
+.top-rated-products .br-theme-bars-reversed .br-widget a {
   width: 16px;
   height: 16px;
 }

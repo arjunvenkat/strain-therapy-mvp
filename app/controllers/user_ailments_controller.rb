@@ -37,6 +37,19 @@ class UserAilmentsController < ApplicationController
     end
   end
 
+  def from_profile
+    @user_ailment = UserAilment.new(user_ailment_params)
+    respond_to do |format|
+      if @user_ailment.save
+        format.html { redirect_to @user_ailment.user, notice: "You successfully added #{@user_ailment.ailment.name} as an ailment" }
+        format.json { render :show, status: :created, location: @user_ailment }
+      else
+        format.html { render :new }
+        format.json { render json: @user_ailment.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   # PATCH/PUT /user_ailments/1
   # PATCH/PUT /user_ailments/1.json
   def update

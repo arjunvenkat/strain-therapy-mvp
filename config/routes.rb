@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   get 'pages/home'
 
   resources :reviews
-  resources :user_ailments
+  resources :user_ailments do
+    post 'from_profile', on: :collection
+  end
   devise_for :users
   get 'users/:id' => 'users#show', as: :user
   resources :products
