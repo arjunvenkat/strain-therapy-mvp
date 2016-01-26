@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  root to: "pages#home"
-  get 'pages/home'
+  root to: "pages#splash"
+  get 'pages/home', as: 'home'
 
   resources :reviews
   resources :user_ailments do

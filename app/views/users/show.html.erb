@@ -18,7 +18,7 @@
       </div>
     <% end %>
     <% @user.user_ailments.each do |uailment| %>
-        <h3><%= uailment.ailment.short_name %></h3>
+        <h3><%= uailment.ailment.name %></h3>
         <div class="list-group">
         <% uailment.reviews.limit(4).each do |review|%>
           <%= link_to review, class: 'list-group-item' do %>

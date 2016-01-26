@@ -8,7 +8,23 @@
     <div class="col-md-8">
       <h1><%= @product.name %> <small><%= @product.strain_type %></small></h1>
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe nam delectus earum quo consequuntur minima perspiciatis! Suscipit unde exercitationem nisi ullam voluptas molestiae reiciendis animi inventore corporis perferendis! Voluptatum, corporis! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam quo cupiditate fuga nostrum ex, nemo magni deserunt nisi ad voluptate recusandae ab, ipsa, quidem, excepturi optio? Quasi consectetur, autem facere.</p>
-      <a href="<%= new_review_url(product_id: @product.id) %>" class="btn btn-success btn-block">Write a review for <%= @product.name %></a>
+      <a href="<%= new_review_url(product_id: @product.id) %>" class="btn btn-success btn-block">Add a journal entry for <%= @product.name %></a>
+    </div>
+  </div>
+  <div class="row spacer">
+    <div class="col-md-12">
+      <h2>Members have found <%= @product.name %> effective in treating:</h2>
+      <ul class="ailments spacer">
+        <% @product.best_ailments(6).each do |ailment| %>
+        <li>
+          <div class="ailment-name">
+            <a href="<%= ailment_path(ailment.first) %>" class="ailment-name"><%= ailment.first.short_name %></a>
+          </div>
+        </li>
+        <% end %>
+      </ul>
+
+
     </div>
   </div>
   <div class="row spacer">
@@ -38,22 +54,7 @@
     </div>
   </div>
 </div>
-<div class="row spacer">
-  <div class="col-md-12">
-    <h2>Members have found <%= @product.name %> effective in treating:</h2>
-    <ul class="ailments spacer">
-      <% @product.best_ailments.each do |ailment| %>
-      <li>
-        <div class="ailment-name">
-          <a href="<%= ailment_path(ailment.first) %>" class="ailment-name"><%= ailment.first.short_name %></a>
-        </div>
-      </li>
-      <% end %>
-    </ul>
 
-
-  </div>
-</div>
 <div class="row spacer">
   <div class="col-md-12">
     <h2>Key attributes from member reviews of <%= @product.name %></h2>
@@ -98,7 +99,7 @@
             </div>
             <hr>
           <% end %>
-          <a href="<%= new_review_url(product_id: @product.id) %>" class="btn btn-success btn-block">Write a review for <%= @product.name %></a>
+          <a href="<%= new_review_url(product_id: @product.id) %>" class="btn btn-success btn-block">Add a journal entry for <%= @product.name %></a>
         </div>
       </div>
     </div>
