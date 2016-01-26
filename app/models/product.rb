@@ -1,6 +1,10 @@
 class Product < ActiveRecord::Base
   has_many :reviews
 
+  def name_with_category
+    "#{name} - #{category}"
+  end
+
   def reviews_by_rating
     reviews.order(effectiveness: :desc)
   end
@@ -18,5 +22,9 @@ class Product < ActiveRecord::Base
     ailment_array.map do |array_item|
       [Ailment.find(array_item[0].to_i), array_item[1]]
     end
+  end
+
+  def avg_rating
+    reviews.average(:effectiveness).to_i
   end
 end

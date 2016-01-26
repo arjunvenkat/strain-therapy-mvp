@@ -87,13 +87,14 @@
 
     <div class="panel panel-default">
       <div class="panel-body">
-        <h3>
+        <h2>
           Recent member reviews of <span class="inline-name"><%= @product.name %></span>
-        </h3>
+        </h2>
+        <hr>
         <div>
           <% @product.reviews.each do |review| %>
             <div class="row">
-              <%= render 'reviews/single_review', review: review, context: 'product' %>
+              <%= render 'reviews/short_review', review: review, context: 'product' %>
             </div>
             <hr>
           <% end %>

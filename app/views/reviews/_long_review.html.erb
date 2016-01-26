@@ -1,0 +1,54 @@
+<div class="review">
+  <div class="col-md-12">
+    <div class="row">
+      <div class="col-md-6">
+        <h3>
+          <% if context == 'product' %>
+            for <%= link_to review.ailment.name, review.ailment %>
+          <% else %>
+            <%= link_to review.product.name, review.product %>
+          <% end %>
+          <small><%= time_ago_in_words(review.created_at) %> ago</small>
+        </h3>
+      </div>
+      <div class="col-md-6">
+        <div class="consumption-method option <%= review.method %> selected"><%= review.method %></div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <%= select_tag :effectiveness, options_for_select(EFFECTIVENESS_RATINGS, review.effectiveness), class: 'rating' %>
+      </div>
+      <div class="col-md-6">
+        <%= select_tag :amount, options_for_select(CONSUMPTION_AMOUNTS, review.amount), class: 'rating' %>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-12 spacer">
+    <% if review.positives.present? %>
+      <div class="row">
+          <div class="col-md-2">
+            <strong>Positives:</strong>
+          </div>
+          <div class="col-md-10"><%= review.positives %></div>
+      </div>
+    <% end %>
+    <% if review.negatives.present? %>
+      <div class="row">
+          <div class="col-md-2">
+            <strong>Negatives:</strong>
+          </div>
+          <div class="col-md-10"><%= review.negatives %></div>
+      </div>
+    <% end %>
+    <% if review.additional_info.present? %>
+      <div class="row">
+          <div class="col-md-2">
+            <strong>Other:</strong>
+          </div>
+          <div class="col-md-10"><%= review.additional_info %></div>
+      </div>
+    <% end %>
+  </div>
+</div>

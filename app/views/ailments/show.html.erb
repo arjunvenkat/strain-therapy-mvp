@@ -55,13 +55,14 @@
     </div>
     <div class="panel panel-default">
       <div class="panel-body">
-        <h3>
+        <h2>
           Recent member reviews in treating <span class="inline-name"><%= @ailment.name %></span>
-        </h3>
+        </h2>
+        <hr>
         <div>
           <% @ailment.reviews.each do |review| %>
             <div class="row">
-              <%= render 'reviews/single_review', review: review, context: 'ailment' %>
+              <%= render 'reviews/short_review', review: review, context: 'ailment' %>
             </div>
             <hr>
           <% end %>

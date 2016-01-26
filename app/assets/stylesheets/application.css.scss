@@ -42,6 +42,14 @@ nav{
 }
 
 
+.navbar-home-link {
+  padding: 10px;
+}
+
+.navbar-home-link img {
+  max-width: 180px;
+}
+
 ul{
   list-style: none;
 }
@@ -82,6 +90,12 @@ ul{
   }
 }
 
+.big-search {
+  font-size: 2em;
+  height: 46px;
+  margin-bottom: 1em;
+}
+
 .spacer-sm {
   margin-top: 0.5em;
 }
@@ -92,6 +106,10 @@ ul{
 
 .spacer-2 {
   margin-top: 2em;
+}
+
+.spacer-left {
+  margin-left: 1em;
 }
 
 
@@ -243,6 +261,89 @@ ul{
   color: white;
 }
 
+.consumption-method {
+  padding: 4px;
+  background-color: lightgray;
+  text-align: center;
+}
+
+
+
+/** Review **/
+
+
+
+.box-select-container {
+  margin-left: -10px;
+  .option {
+    padding: 30px;
+    background: lightgray;
+    margin: 10px;
+    display: inline-block;
+    width: 120px;
+    text-align: center;
+    color: black;
+    font-weight: 500;
+    text-decoration: none
+
+
+  }
+
+  // .selected {
+  //   border: 2px solid lightgray;
+  //   padding: 28px;
+  // }
+
+
+
+  // .option:first-child {
+  //   margin-left: 0;
+  // }
+
+
+}
+
+.smoke, .vape, .tincture, .edible, .beverage, .topical {
+  background-color: rgba(lightgray, 0.2);
+}
+.smoke.selected {
+  background-color: rgba(red, 0.5);
+}
+
+// .vape {
+//   background-color: rgba(purple, 0.2);
+// }
+.vape.selected {
+  background-color: rgba(purple, 0.5);
+}
+
+// .tincture {
+//   background-color: rgba(blue, 0.2);
+// }
+.tincture.selected {
+  background-color: rgba(blue, 0.5);
+}
+
+// .edible {
+//   background-color: rgba(green, 0.2);
+// }
+.edible.selected {
+  background-color: rgba(green, 0.5);
+}
+
+// .beverage {
+//   background-color: rgba(yellow, 0.2);
+// }
+.beverage.selected {
+  background-color: rgba(yellow, 0.5);
+}
+
+// .topical {
+//   background-color: rgba(orange, 0.2);
+// }
+.topical.selected {
+  background-color: rgba(orange, 0.5);
+}
 
 
 /** Products **/
@@ -284,6 +385,11 @@ ul{
     font-size: 4em;
   }
 }
+
+.product .panel-body {
+  height: 7em;
+}
+
 
 
 /** Bootstrap extensions **/

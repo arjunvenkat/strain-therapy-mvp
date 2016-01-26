@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-md-4">
+  <div class="col-md-5">
     <%= form_for(@review) do |f| %>
       <% if @review.errors.any? %>
         <div id="error_explanation">
@@ -21,15 +21,15 @@
       </div>
       <div class="form-group">
         <%= f.label :product_id %>
-        <%= f.collection_select :product_id, Product.all, :id, :name, {}, class: 'form-control' %>
+        <%= f.collection_select :product_id, Product.all, :id, :name_with_category, {}, class: 'form-control' %>
       </div>
       <div class="form-group">
         <%= f.label :method %>
-        <%= f.select :method, ['flowers', 'tincture', 'wax'], {}, class: 'form-control' %>
+        <%= f.select :method, CONSUMPTION_METHODS, {}, class: 'form-control box-select' %>
       </div>
       <div class="form-group">
         <%= f.label :amount %>
-        <%= f.select :amount, ['0.2g','0.5g','1.5g','2g','3g'], {}, class: 'form-control' %>
+        <%= f.select :amount, CONSUMPTION_AMOUNTS, {}, class: 'form-control rating-form' %>
       </div>
       <div class="form-group">
         <%= f.label :effectiveness %>

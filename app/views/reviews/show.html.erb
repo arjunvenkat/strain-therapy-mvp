@@ -1,9 +1,9 @@
 <div class="row">
   <div class="col-md-8 col-md-offset-2">
-    <h1>Review for <%= @review.ailment.name %></h1>
+    <h1>Review for <%= link_to @review.ailment.name, @review.ailment %></h1>
     <div class="panel panel-default">
       <div class="panel-body">
-        <%= render 'single_review', review: @review, context: 'ailment' %>
+        <%= render 'long_review', review: @review, context: 'ailment' %>
       </div>
     </div>
 

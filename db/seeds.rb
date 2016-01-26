@@ -66,7 +66,7 @@ Product.all.each do |product|
         user_id: user.id,
         ailment_id: ailment.id,
         product_id: product.id,
-        method: "smoking",
+        method: CONSUMPTION_METHODS.sample,
         amount: 0.3,
         effectiveness: rand(4) + 1,
         positives: Faker::Hacker.say_something_smart,

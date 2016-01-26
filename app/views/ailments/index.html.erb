@@ -1,29 +1,36 @@
-<p id="notice"><%= notice %></p>
 
-<h1>Listing Ailments</h1>
+  <div class="row">
+    <%= form_tag ailments_path, method: :get do %>
+      <div class="col-md-10">
+          <input type="text" class="form-control big-search" name="search" placeholder="Search for an ailment" value="<%= params[:search] %>">
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @ailments.each do |ailment| %>
-      <tr>
-        <td><%= ailment.name %></td>
-        <td><%= ailment.description %></td>
-        <td><%= link_to 'Show', ailment %></td>
-        <td><%= link_to 'Edit', edit_ailment_path(ailment) %></td>
-        <td><%= link_to 'Destroy', ailment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      </div>
+      <div class="col-md-2">
+        <% if params[:search] %>
+          <%= link_to ailments_path, class: 'btn btn-lg btn-default btn-block' do %>
+            <i class="fa fa-times"></i> clear
+          <% end %>
+        <% else %>
+            <button type="submit" class="btn btn-lg btn-default btn-block">Submit</button>
+        <% end %>
+      </div>
     <% end %>
-  </tbody>
-</table>
+  </div>
 
-<br>
+<div class="row">
+  <div class="col-md-12">
+    <div class="ailments">
+      <ul class="ailments">
+        <% @ailments.all.each do |ailment| %>
+        <li>
+          <div class="ailment-name">
+            <a href="<%= ailment_path(ailment) %>" class="ailment-name"><%= ailment.short_name %></a>
+          </div>
+        </li>
+        <% end %>
+      </ul>
 
-<%= link_to 'New Ailment', new_ailment_path %>
+
+    </div>
+  </div>
+</div>

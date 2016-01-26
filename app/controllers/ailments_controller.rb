@@ -4,7 +4,11 @@ class AilmentsController < ApplicationController
   # GET /ailments
   # GET /ailments.json
   def index
-    @ailments = Ailment.all
+    if params[:search].present?
+      @ailments = Ailment.where("name LIKE ?", "%#{params[:search]}%")
+    else
+      @ailments = Ailment.all
+    end
   end
 
   # GET /ailments/1
