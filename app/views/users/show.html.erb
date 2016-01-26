@@ -18,7 +18,12 @@
       </div>
     <% end %>
     <% @user.user_ailments.each do |uailment| %>
-        <h3><%= uailment.ailment.name %></h3>
+        <h3>
+          <%= uailment.ailment.name %>
+          <%= link_to user_ailment_path(uailment), class: 'btn btn-danger btn-sm', method: :delete do %>
+            <i class="fa fa-times"></i> Remove ailment
+          <% end %>
+        </h3>
         <div class="list-group">
         <% uailment.reviews.limit(4).each do |review|%>
           <%= link_to review, class: 'list-group-item' do %>

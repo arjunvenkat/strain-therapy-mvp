@@ -69,7 +69,7 @@ class UserAilmentsController < ApplicationController
   def destroy
     @user_ailment.destroy
     respond_to do |format|
-      format.html { redirect_to @user_ailment.ailment, notice: "You successfully removed #{@user_ailment.ailment.name} as an ailment" }
+      format.html { redirect_to :back, notice: "You successfully removed #{@user_ailment.ailment.name} as an ailment" }
       format.json { head :no_content }
     end
   end
