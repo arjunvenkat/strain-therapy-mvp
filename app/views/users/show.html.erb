@@ -19,9 +19,9 @@
     <% end %>
     <% @user.user_ailments.each do |uailment| %>
         <h3>
-          <%= uailment.ailment.name %>
+          <%= link_to uailment.ailment.name, uailment.ailment %>
           <%= link_to user_ailment_path(uailment), class: 'btn btn-danger btn-sm', method: :delete do %>
-            <i class="fa fa-times"></i> Remove ailment
+            <i class="fa fa-times"></i> Remove
           <% end %>
         </h3>
         <div class="list-group">

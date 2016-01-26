@@ -4,7 +4,7 @@
       <div class="col-md-6">
         <h3>
           <% if context == 'product' %>
-            for <%= link_to review.ailment.name, review.ailment %>
+            for <%= link_to review.ailment.name, review %>
           <% else %>
             <%= link_to review.product.name, review %>
           <% end %>
