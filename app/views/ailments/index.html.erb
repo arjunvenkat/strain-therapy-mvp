@@ -1,25 +1,10 @@
 
-  <div class="row">
-    <%= form_tag ailments_path, method: :get do %>
-      <div class="col-md-10">
-          <input type="text" class="form-control big-search" name="search" placeholder="Search for an ailment" value="<%= params[:search] %>">
-
-      </div>
-      <div class="col-md-2">
-        <% if params[:search] %>
-          <%= link_to ailments_path, class: 'btn btn-lg btn-default btn-block' do %>
-            <i class="fa fa-times"></i> clear
-          <% end %>
-        <% else %>
-            <button type="submit" class="btn btn-lg btn-default btn-block">Submit</button>
-        <% end %>
-      </div>
-    <% end %>
-  </div>
 
 <div class="row">
   <div class="col-md-12">
-    <div class="ailments">
+    <h1 class="text-center">Explore ailments</h1>
+    <hr>
+    <div class="ailments spacer">
       <ul class="ailments">
         <% @ailments.all.each do |ailment| %>
         <li>
