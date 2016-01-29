@@ -31,43 +31,80 @@
       initialRating: null
     });
 
-    $('#review_method').change(function(){
-      // old data
-      // var data = {
-      //   "flowers": "0.5g, 1.0g, 1.5g, 2.0g, 2.5g",
-      //   "wax": "0.1g, 0.2g, 0.3g, 0.4g, 0.5g",
-      //   "tincture": "0.1ml, 0.3ml, 0.5ml"
-      // }
-      // var data = {
-      //   "flowers": "0.5g, 1.0g, 1.5g, 2.0g, 2.5g",
-      //   "wax": "0.1g, 0.2g, 0.3g, 0.4g, 0.5g",
-      //   "tincture": "0.1ml, 0.3ml, 0.5ml"
-      // }
-      // var $dropdown = $(this);
-      // var key = $dropdown.val();
-      // var vals = data[key].split(',');
-      // var $amountDropdown = $('#review_amount');
-      // $amountDropdown.empty();
-      // $ratingContainer = $amountDropdown.siblings('.br-widget');
-      // $ratingContainer.empty();
-      // $.each(vals, function(index, value){
-      //   $ratingContainer.append('<a href="#" data-rating-value="' + value + '" data-rating-text="' + value + '"></a>')
-      // });
-      // $ratingContainer.find('a:first-child').addClass('br-selected br-current');
-
-    });
 
     $('.box-select').hide().after('<div class="box-select-container"></div>');
+    console.log(<%= CONSUMPTION_METHODS %>);
     var boxSelectData = <%= CONSUMPTION_METHODS %>;
     $.each(boxSelectData, function(index, value) {
       $('.box-select-container').append('<a class="option '+ value +'" href="#">' + value + '</a>');
     })
 
+    $('.zodiac-select').hide().after('<div class="zodiac-select-container"></div>');
+    var zodiacSelectData = <%= ZODIAC_SIGNS %>
+    $.each(zodiacSelectData, function(index, value) {
+      $('.zodiac-select-container').append('<a class="option zodiac-sign" href="#">' + value + '</a>');
+    });
+
+
+    $('#review_product_id').change(function(){
+      var selectedProduct = $(this).find('option:selected').text();
+      var selectedCategory = selectedProduct.split('-')[1].trim();
+      changeDisplayForAmountSelection($('#review_amount'), selectedCategory);
+      filterAvailableMethods(selectedCategory);
+    });
+
     $('.box-select-container .option').click(function(e){
       e.preventDefault();
-      $('#review_method').val(this.textContent);
-      $(this).parent().children().removeClass('selected');
-      $(this).addClass('selected');
+      changeMethodOnHiddenForm($('#review_method'), this);
+    });
+
+    $('.zodiac-select-container .option').click(function(e){
+      e.preventDefault();
+      changeZodiacOnHiddenForm($('form #sign'), this);
     });
  });
+
+function filterAvailableMethods(selectedCategory) {
+  var potentialMethods = {
+    "flowers": 'smoke, vape',
+    "concentrates": 'vape, tincture',
+    "edibles": 'food, beverages, topicals'
+  }
+  var availableMethods = potentialMethods[selectedCategory];
+  $('#review_method').siblings(".box-select-container").find('a').each(function(){
+      // alert(selectedCategory + "---" + availableMethods);
+    if (potentialMethods[selectedCategory].indexOf(this.textContent) >= 0) {
+      $(this).show();
+    } else {
+      $(this).hide();
+    }
+  });
+}
+
+function changeMethodOnHiddenForm($methodForm, selectedMethod ) {
+  $methodForm.val(selectedMethod.textContent);
+  $(selectedMethod).parent().children().removeClass('selected');
+  $(selectedMethod).addClass('selected');
+}
+
+function changeZodiacOnHiddenForm($zodiacForm, selectedZodiac ) {
+  $zodiacForm.val(selectedZodiac.textContent);
+  $(selectedZodiac).parent().children().removeClass('selected');
+  $(selectedZodiac).addClass('selected');
+}
+
+function changeDisplayForAmountSelection($amountForm, selectedCategory) {
+  var consumptionData = {
+    "flowers": "under 0.5g, 0.5g to 1.0g, over 1.0g",
+    "concentrates": "1-2 uses, 3-4 uses, 5 or more uses",
+    "edibles": "under 5mg, 5-10mg, over 10mg",
+  }
+  var vals = consumptionData[selectedCategory].split(',');
+  $amountBoxes = $amountForm.siblings('.br-widget').find('a');
+  $currentRating = $amountForm.siblings('.br-widget').find('.br-current-rating');
+  $currentRating.text(vals[0]);
+  $amountBoxes.each(function(i) {
+    $(this).attr('data-rating-text', vals[i]);
+  });
+}
 

@@ -5,6 +5,28 @@
 </h1>
 
 <div class="row">
+  <div class="col-md-9">
+    <h2>Tell us a bit more so we can customize your experience:</h2>
+    <%= form_tag(update_user_path(@user.id)) do %>
+      <div class="form-group">
+        <h3>What's your preferred method of using cannabis?</h3>
+        <%= label_tag :method, {}, class: 'sr-only' %>
+        <%= select_tag :method, options_for_select(CONSUMPTION_METHODS), class: 'form-control box-select' %>
+      </div>
+      <div class="form-group">
+        <h3>What is your zodiac sign?</h3>
+        <%= label_tag :sign, {}, class: 'sr-only' %>
+        <%= select_tag :sign, options_for_select(ZODIAC_SIGNS), class: 'form-control zodiac-select' %>
+      </div>
+      <div class="form-group">
+        <%= submit_tag "Update your info", class: 'btn btn-default' %>
+      </div>
+    <% end -%>
+
+  </div>
+</div>
+
+<div class="row">
   <div class="col-md-4">
     <h2>Ailment journal</h2>
     <%= form_for(UserAilment.new, url: from_profile_user_ailments_path) do |f| %>
@@ -34,10 +56,18 @@
         <% end %>
         </div>
     <% end %>
-
   </div>
   <div class="col-md-4">
     <h2>Highest rated products</h2>
+    <%= form_tag(new_review_path, method: :get) do |f| %>
+      <div>Add an journal entry for a product</div>
+      <div class="form-group">
+        <%= select_tag(:product_id, options_from_collection_for_select(Product.all, :id, :name), class: 'form-control') %>
+      </div>
+      <div class="form-group">
+        <%= submit_tag "Journal this product", class: 'btn btn-default' %>
+      </div>
+    <% end %>
     <div class="list-group">
       <% @user.reviews_by_rating.limit(8).each do |review| %>
         <%= link_to review.product, class: 'list-group-item' do %>

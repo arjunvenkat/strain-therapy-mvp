@@ -273,7 +273,7 @@ ul{
 
 
 
-.box-select-container {
+.box-select-container, .zodiac-select-container {
   margin-left: -10px;
   .option {
     padding: 30px;
@@ -306,6 +306,13 @@ ul{
 .smoke, .vape, .tincture, .edible, .beverage, .topical {
   background-color: rgba(lightgray, 0.2);
 }
+
+.zodiac-sign.selected {
+  background-color: rgba(black, 0.5);
+  color: white;
+}
+
+
 .smoke.selected {
   background-color: rgba(red, 0.5);
 }
@@ -327,7 +334,7 @@ ul{
 // .edible {
 //   background-color: rgba(green, 0.2);
 // }
-.edible.selected {
+.food.selected {
   background-color: rgba(green, 0.5);
 }
 

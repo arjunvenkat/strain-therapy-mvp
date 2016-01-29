@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   end
   devise_for :users
   get 'users/:id' => 'users#show', as: :user
+  post 'users/:id/update' => 'users#update', as: :update_user
   resources :products
   resources :dispensaries
   resources :scientific_evidences

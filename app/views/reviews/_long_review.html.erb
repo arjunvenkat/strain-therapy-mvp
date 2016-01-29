@@ -20,7 +20,7 @@
         <%= select_tag :effectiveness, options_for_select(EFFECTIVENESS_RATINGS, review.effectiveness), class: 'rating' %>
       </div>
       <div class="col-md-6">
-        <%= select_tag :amount, options_for_select(CONSUMPTION_AMOUNTS, review.amount), class: 'rating' %>
+        <%= select_tag :amount, options_for_select(CONSUMPTION_AMOUNTS_BY_CATEGORY[review.product.category], review.amount), class: 'rating' %>
       </div>
     </div>
   </div>

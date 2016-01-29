@@ -5,7 +5,7 @@ class CreateReviews < ActiveRecord::Migration
       t.integer :ailment_id
       t.integer :product_id
       t.string :method
-      t.float :amount
+      t.integer :amount
       t.integer :effectiveness
       t.text :positives
       t.text :negatives

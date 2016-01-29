@@ -8,6 +8,10 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def update
+
+  end
+
   protected
     def check_if_authorized
       unless current_user.id == params[:id].to_i

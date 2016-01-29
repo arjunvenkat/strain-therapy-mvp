@@ -30,7 +30,7 @@ class ReviewsController < ApplicationController
     respond_to do |format|
       if @review.save
         UserAilment.find_or_create_by(user_id: @review.user_id, ailment_id: @review.ailment_id)
-        format.html { redirect_to @review.ailment, notice: 'Review was successfully created.' }
+        format.html { redirect_to @review.user, notice: 'Review was successfully created.' }
         format.json { render :show, status: :created, location: @review }
       else
         format.html { render :new }
