@@ -1,5 +1,5 @@
 <div class="row spacer">
-  <div class="col-md-2">
+  <div class="col-md-3 col-lg-2">
     <div class="ailment-name-alt">
       <%= @ailment.short_name %>
     </div>
@@ -7,8 +7,8 @@
       <%= render 'ailment_status', ailment: @ailment %>
     <% end %>
     <hr>
-    <h5 class="spacer">Top rated: <%= @ailment.short_name %></h5>
-    <div class="list-group top-rated-products">
+    <h5 class="spacer hidden-sm hidden-xs">Top rated: <%= @ailment.short_name %></h5>
+    <div class="list-group top-rated-products hidden-sm hidden-xs">
       <% @ailment.best_products(6).each do |product_array| %>
         <%= link_to product_array[0], class: "list-group-item list-group-item-default" do %>
           <%= product_array[0].name %>
@@ -24,12 +24,12 @@
       <% end %>
     </div>
   </div>
-  <div class="col-md-8">
+  <div class="col-md-7 col-lg-8">
     <div class="row">
-      <div class="col-md-6">
+      <div class="col-md-12 col-lg-6">
         <a href="<%= new_review_url(ailment_id: @ailment.id) %>" class="btn btn-success btn-block btn-lg">Review a treatment for <%= @ailment.short_name %></a>
       </div>
-      <div class="col-md-6">
+      <div class="col-md-12 col-lg-6">
         <a href="<%= @ailment.link %>" class="btn btn-default btn-block btn-lg">Read more about <%= @ailment.short_name %></a>
       </div>
     </div>
@@ -69,6 +69,22 @@
           <a href="<%= new_review_url(ailment_id: @ailment.id) %>" class="btn btn-success btn-block">Review a treatment for <%= @ailment.name %></a>
         </div>
       </div>
+    </div>
+    <h5 class="spacer hidden-md hidden-lg">Top rated: <%= @ailment.short_name %></h5>
+    <div class="list-group top-rated-products hidden-md hidden-lg">
+      <% @ailment.best_products(6).each do |product_array| %>
+        <%= link_to product_array[0], class: "list-group-item list-group-item-default" do %>
+          <%= product_array[0].name %>
+          <div class="row spacer-sm">
+            <div class="col-md-8">
+              <%= select_tag :effectiveness, options_for_select(EFFECTIVENESS_RATINGS, product_array[1].to_i ), class: 'rating' %>
+            </div>
+            <div class="col-md-4">
+              <div class="product-category-icon <%= product_array[0].category %>"><%= product_array[0].category[0].capitalize %></div>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
     </div>
   </div>
 </div>
