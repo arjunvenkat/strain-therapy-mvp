@@ -41,6 +41,7 @@
         </h3>
         <p><%= @ailment.featured_evidence.description %></p>
         <p><%= link_to 'link to research', @ailment.featured_evidence.link, class: 'btn btn-default' %></p>
+        <p><strong>Have you found any evidence to share? Add below.</strong></p>
       </div>
       <ul class="list-group">
         <% @ailment.other_evidence.each do |evidence| %>

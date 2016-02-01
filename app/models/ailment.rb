@@ -40,6 +40,6 @@ class Ailment < ActiveRecord::Base
 
 
   def other_evidence
-    scientific_evidences.where(featured: !true)
+    scientific_evidences.where(featured: !true).limit(10)
   end
 end
