@@ -27,6 +27,12 @@ $primary-color: #006E4B;
   border-radius: 0;
 }
 
+footer {
+  background-color: lighten(lightgray, 10%);
+  padding-top: 12em;
+
+}
+
 nav{
   padding: 10px;
   border-bottom: 2px solid gray;
@@ -90,12 +96,6 @@ ul{
   }
 }
 
-.big-search {
-  font-size: 2em;
-  height: 46px;
-  margin-bottom: 1em;
-}
-
 .spacer-sm {
   margin-top: 0.5em;
 }
@@ -152,12 +152,57 @@ ul{
     font-size: 2em;
     margin: 12px;
     text-decoration: none;
+    border: 1px solid gray;
   }
 
   a:hover {
     color: white;
     background-color: gray;
+    border: 1px solid lightgray;
   }
+}
+
+.hero {
+  background-image: url(<%= asset_path('cannabis2.png') %>);
+  background-position: center top;
+
+  padding-bottom: 0;
+  padding-top: 0;
+
+  h2 {
+    background-color: rgba(white, 0.9);
+    padding: 24px;
+  }
+}
+
+.jumbotron {
+  margin-bottom: 0;
+  .hero-screen {
+    padding-top: 2em;
+    padding-bottom: 2em;
+    background-color: rgba(black, 0.3);
+    height: 100%;
+  }
+
+}
+
+.default-home-bg {
+  background-color: #D9E3CC;
+  padding-bottom: 2em;
+}
+
+.cannabis-background {
+  background-image: url(<%= asset_path('cannabis.png') %>);
+  background-position: left top;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+ padding-bottom: 24px;
+}
+
+.cannabis-image-text {
+ background-color: rgba(white, 0.8);
+ padding: 24px;
 }
 
 .home-container {
@@ -443,7 +488,11 @@ ul{
 
 
 
-/** Bootstrap extensions **/
+/** Bootstrap extensions and overrides**/
+
+.container {
+  padding-bottom: 4em;
+}
 
 .list-group-horizontal .list-group-item {
     display: inline-block;

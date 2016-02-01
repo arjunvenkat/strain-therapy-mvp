@@ -37,15 +37,15 @@
         <%= f.select :effectiveness, [['No effect', 1],['Meh', 2],[ 'Pretty good',3],['Always works', 4]], {}, class: 'form-control rating-form' %>
       </div>
       <div class="form-group">
-        <%= f.label :positives %>
+        <%= f.label :positives, 'Positives (optional)' %>
         <%= f.text_area :positives, class: 'form-control' %>
       </div>
       <div class="form-group">
-        <%= f.label :negatives %>
+        <%= f.label :negatives, 'Negatives (optional)' %>
         <%= f.text_area :negatives, class: 'form-control' %>
       </div>
       <div class="form-group">
-        <%= f.label :additional_info %>
+        <%= f.label :additional_info, 'Additional info (optional)' %>
         <%= f.text_area :additional_info, class: 'form-control' %>
       </div>
       <div class="actions">
