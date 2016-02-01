@@ -33,6 +33,7 @@
 
 
     $('.box-select').hide().after('<div class="box-select-container"></div>');
+    $('.preferred-select').hide().after('<div class="preferred-select-container box-select-container"></div>');
     console.log(<%= CONSUMPTION_METHODS %>);
     var boxSelectData = <%= CONSUMPTION_METHODS %>;
     $.each(boxSelectData, function(index, value) {
@@ -60,7 +61,12 @@
 
     $('.zodiac-select-container .option').click(function(e){
       e.preventDefault();
-      changeZodiacOnHiddenForm($('form #sign'), this);
+      changeMethodOnHiddenForm($('form #sign'), this);
+    });
+
+    $('.preferred-select-container .option').click(function(e){
+      e.preventDefault();
+      changeMethodOnHiddenForm($('#method'), this);
     });
  });
 
@@ -85,12 +91,6 @@ function changeMethodOnHiddenForm($methodForm, selectedMethod ) {
   $methodForm.val(selectedMethod.textContent);
   $(selectedMethod).parent().children().removeClass('selected');
   $(selectedMethod).addClass('selected');
-}
-
-function changeZodiacOnHiddenForm($zodiacForm, selectedZodiac ) {
-  $zodiacForm.val(selectedZodiac.textContent);
-  $(selectedZodiac).parent().children().removeClass('selected');
-  $(selectedZodiac).addClass('selected');
 }
 
 function changeDisplayForAmountSelection($amountForm, selectedCategory) {

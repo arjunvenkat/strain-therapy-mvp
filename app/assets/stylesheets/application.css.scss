@@ -100,6 +100,10 @@ ul{
   margin-top: 0.5em;
 }
 
+.spacer-lg {
+  margin-top: 2em;
+}
+
 .spacer {
   margin-top: 1em;
 }
@@ -133,6 +137,46 @@ ul{
 .inline-name {
   color: $primary-color;
 }
+
+/** Home **/
+
+.home-links-container {
+  margin-top: 24px;
+  text-align: center;
+  a {
+    display: inline-block;
+    background-color: lightgray;
+    color: black;
+    width: 240px;
+    padding: 30px;
+    font-size: 2em;
+    margin: 12px;
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: white;
+    background-color: gray;
+  }
+}
+
+.home-container {
+  margin-top: 4em;
+  p {
+    font-size: 1.4em;
+  }
+
+  img {
+    width: 100%;
+  }
+
+  h2 {
+    margin-top: 0;
+  }
+}
+
+
+/* Ailment */
 
 .ailment{
   background-color: $primary-color;

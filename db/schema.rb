@@ -11,14 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160119173842) do
+ActiveRecord::Schema.define(version: 20160201020223) do
 
   create_table "ailments", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
     t.string   "link"
+    t.integer  "user_ailment_count"
   end
 
   create_table "dispensaries", force: :cascade do |t|
@@ -85,6 +86,8 @@ ActiveRecord::Schema.define(version: 20160119173842) do
     t.string   "username"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.string   "preferred_method"
+    t.string   "zodiac_sign"
   end
 
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

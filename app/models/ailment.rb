@@ -1,6 +1,10 @@
 class Ailment < ActiveRecord::Base
   has_many :reviews
   has_many :scientific_evidences
+  has_many :user_ailments
+  has_many :users, through: :user_ailments
+
+  scope :by_popularity, -> { order('user_ailment_count desc') }
 
   def short_name
     name.split.length > 1 ? name.split[0] : name
@@ -8,6 +12,11 @@ class Ailment < ActiveRecord::Base
 
   def reviews_by_rating
     reviews.order(effectiveness: :desc)
+  end
+
+  def update_user_ailment_count
+    self.user_ailment_count = user_ailments.count
+    self.save
   end
 
   def best_products(limit)

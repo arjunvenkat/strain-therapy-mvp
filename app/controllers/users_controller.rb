@@ -8,8 +8,15 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  def update
-
+  def update_preferences
+    @user = User.find(params[:id])
+    @user.preferred_method = params[:method]
+    @user.zodiac_sign = params[:sign]
+    if @user.save
+      redirect_to @user
+    else
+      render 'show'
+    end
   end
 
   protected

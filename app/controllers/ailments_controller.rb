@@ -7,7 +7,7 @@ class AilmentsController < ApplicationController
     if params[:search].present?
       @ailments = Ailment.where("name LIKE ?", "%#{params[:search]}%")
     else
-      @ailments = Ailment.all
+      @ailments = Ailment.by_popularity;
     end
   end
 

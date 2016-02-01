@@ -73,6 +73,7 @@ Product.all.each do |product|
         negatives: Faker::Hacker.say_something_smart,
         additional_info: Faker::Hacker.say_something_smart)
       UserAilment.find_or_create_by(user_id: user.id, ailment_id: ailment.id)
+      ailment.update_user_ailment_count
   end
 end
 

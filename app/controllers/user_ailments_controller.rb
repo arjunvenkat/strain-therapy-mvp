@@ -28,6 +28,7 @@ class UserAilmentsController < ApplicationController
 
     respond_to do |format|
       if @user_ailment.save
+        @user_ailment.ailment.update_user_ailment_count
         format.html { redirect_to @user_ailment.ailment, notice: "You successfully added #{@user_ailment.ailment.name} as an ailment" }
         format.json { render :show, status: :created, location: @user_ailment }
       else
@@ -41,6 +42,7 @@ class UserAilmentsController < ApplicationController
     @user_ailment = UserAilment.new(user_ailment_params)
     respond_to do |format|
       if @user_ailment.save
+        @user_ailment.ailment.update_user_ailment_count
         format.html { redirect_to @user_ailment.user, notice: "You successfully added #{@user_ailment.ailment.name} as an ailment" }
         format.json { render :show, status: :created, location: @user_ailment }
       else
@@ -55,6 +57,7 @@ class UserAilmentsController < ApplicationController
   def update
     respond_to do |format|
       if @user_ailment.update(user_ailment_params)
+        @user_ailment.ailment.update_user_ailment_count
         format.html { redirect_to @user_ailment, notice: 'User ailment was successfully updated.' }
         format.json { render :show, status: :ok, location: @user_ailment }
       else
@@ -68,6 +71,7 @@ class UserAilmentsController < ApplicationController
   # DELETE /user_ailments/1.json
   def destroy
     @user_ailment.destroy
+    @user_ailment.ailment.update_user_ailment_count
     respond_to do |format|
       format.html { redirect_to :back, notice: "You successfully removed #{@user_ailment.ailment.name} as an ailment" }
       format.json { head :no_content }

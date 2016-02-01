@@ -2,13 +2,13 @@ Rails.application.routes.draw do
   root to: "pages#splash"
   get 'pages/home', as: 'home'
 
-  resources :reviews
+  resources :reviews, except: :index
   resources :user_ailments do
     post 'from_profile', on: :collection
   end
   devise_for :users
   get 'users/:id' => 'users#show', as: :user
-  post 'users/:id/update' => 'users#update', as: :update_user
+  post 'users/:id/update_preferences' => 'users#update_preferences', as: :update_user_preferences
   resources :products
   resources :dispensaries
   resources :scientific_evidences

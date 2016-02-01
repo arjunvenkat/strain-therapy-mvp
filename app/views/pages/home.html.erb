@@ -2,18 +2,20 @@
 
 <div class="jumbotron">
   <div class="container">
-    <h2>Medical Cannabis Has Been Used In Treating Ailments For 10,000 Years.</h2>
-    <h3>1. Learn How and Why Cannabis is Efffective in Treating These Ailments.</h3>
-    <h3>2. Journal Your Reviews for Future Reference and Quick Orders.</h3>
-    <h3>3. Discover New Strains From Other Member Reviews of Ailment Treatments.</h3>
+    <h2 class="text-center">Medical Cannabis Has Been Used In Treating Ailments For 10,000 Years.</h2>
+    <div class="home-links-container">
+      <a href="/ailments">Learn</a>
+      <a href="/reviews/new">Journal</a>
+      <a href="/products">Discover</a>
+    </div>
   </div>
 </div>
 <div class="container">
-  <div class="row">
-    <div class="col-md-10 col-md-offset-1">
+  <div class="row home-container">
+    <div class="col-md-7">
       <div class="ailments">
         <ul class="ailments">
-          <% Ailment.limit(10).each do |ailment| %>
+          <% Ailment.by_popularity.limit(6).each do |ailment| %>
           <li>
             <div class="ailment-name">
               <a href="<%= ailment_path(ailment) %>" class="ailment-name"><%= ailment.short_name %></a>
@@ -21,10 +23,49 @@
           </li>
           <% end %>
         </ul>
-
-
       </div>
-
+    </div>
+    <div class="col-md-5">
+      <h2><a href="/ailments">Learn</a></h2>
+      <p>Cannabis is 100% non-toxic and has been used as a medicine since 10,000 BC.</p>
+      <p>Learn how medical cannabis has been used in treating 60+ ailments. </p>
+    </div>
+  </div>
+  <div class="row home-container">
+    <div class="col-md-7">
+      <%= image_tag 'review_example.png' %>
+    </div>
+    <div class="col-md-5">
+      <h2><a href="/reviews/new">Journal</a></h2>
+      <p>Research has proven that journaling one’s diet and exercise has increased health benefits.  Journaling your medical cannabis product experiences is no different.</p>
+      <p>Journal experiences in 10 second - members use their journals to better understand dosage and effectiveness of medical cannabis products while also recalling their favorites quickly.</p>
+    </div>
+  </div>
+  <div class="row home-container">
+    <div class="col-md-7">
+      <% Product.limit(6).each do |product| %>
+        <div class="col-md-4">
+          <div class="panel panel-default product">
+            <div class="panel-body">
+              <h4><%= link_to product.name, product  %></h4>
+              <div class="row">
+                <div class="col-md-8">
+                  <%= select_tag :effectiveness, options_for_select(EFFECTIVENESS_RATINGS, product.avg_rating), class: 'rating' %>
+                </div>
+                <div class="col-md-4">
+                  <div class="product-category-icon <%= product.category %>"><%= product.category[0].capitalize %></div>
+                </div>
+              </div>
+            </div>
+            <div class="spacer"></div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <div class="col-md-5">
+      <h2><a href="/products">Discover</a></h2>
+      <p>With thousands of medical cannabis products available, finding the most effective for your ailment can be time consuming and expensive.</p>
+      <p>Discover favorite products members use for treating specific ailments. </p>
     </div>
   </div>
 </div>

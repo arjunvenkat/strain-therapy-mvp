@@ -6,22 +6,25 @@
 
 <div class="row">
   <div class="col-md-9">
-    <h2>Tell us a bit more so we can customize your experience:</h2>
-    <%= form_tag(update_user_path(@user.id)) do %>
-      <div class="form-group">
-        <h3>What's your preferred method of using cannabis?</h3>
-        <%= label_tag :method, {}, class: 'sr-only' %>
-        <%= select_tag :method, options_for_select(CONSUMPTION_METHODS), class: 'form-control box-select' %>
-      </div>
-      <div class="form-group">
-        <h3>What is your zodiac sign?</h3>
-        <%= label_tag :sign, {}, class: 'sr-only' %>
-        <%= select_tag :sign, options_for_select(ZODIAC_SIGNS), class: 'form-control zodiac-select' %>
-      </div>
-      <div class="form-group">
-        <%= submit_tag "Update your info", class: 'btn btn-default' %>
-      </div>
-    <% end -%>
+    <% if @user.preferred_method.present? || @user.zodiac_sign.present? %>
+    <% else %>
+      <h2>Tell us a bit more so we can customize your experience:</h2>
+      <%= form_tag(update_user_preferences_path(@user.id)) do %>
+        <div class="form-group">
+          <h3>What's your preferred method of using cannabis?</h3>
+          <%= label_tag :method, {}, class: 'sr-only preferred-method-form' %>
+          <%= select_tag :method, options_for_select(CONSUMPTION_METHODS), class: 'form-control preferred-select' %>
+        </div>
+        <div class="form-group">
+          <h3>What is your zodiac sign?</h3>
+          <%= label_tag :sign, {}, class: 'sr-only' %>
+          <%= select_tag :sign, options_for_select(ZODIAC_SIGNS), class: 'form-control zodiac-select' %>
+        </div>
+        <div class="form-group">
+          <%= submit_tag "Update your info", class: 'btn btn-default' %>
+        </div>
+      <% end -%>
+    <% end %>
 
   </div>
 </div>
@@ -68,6 +71,9 @@
         <%= submit_tag "Journal this product", class: 'btn btn-default' %>
       </div>
     <% end %>
+    <div>
+      <a href="#"></a>
+    </div>
     <div class="list-group">
       <% @user.reviews_by_rating.limit(8).each do |review| %>
         <%= link_to review.product, class: 'list-group-item' do %>
