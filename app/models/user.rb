@@ -11,6 +11,11 @@ class User < ActiveRecord::Base
   has_many :user_ailments
   has_many :ailments, through: :user_ailments
   has_many :reviews
+  has_many :products, through: :reviews
+
+  def distinct_products
+    products.distinct
+  end
 
   def reviews_by_rating
     reviews.order(effectiveness: :desc)

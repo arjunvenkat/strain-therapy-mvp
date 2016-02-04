@@ -6,6 +6,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @product = Product.find_by(id: params[:product_id])
+
   end
 
   def update_preferences

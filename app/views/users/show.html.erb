@@ -61,21 +61,25 @@
     <% end %>
   </div>
   <div class="col-md-4">
-    <h2>Highest rated products</h2>
-    <%= form_tag(new_review_path, method: :get) do |f| %>
-      <div>Add an journal entry for a product</div>
+    <h2>Most effective products</h2>
+    <%= form_tag(user_path(current_user.id), method: :get) do |f| %>
+      <div>Filter by product</div>
       <div class="form-group">
-        <%= select_tag(:product_id, options_from_collection_for_select(Product.all, :id, :name), class: 'form-control') %>
+        <%= select_tag(:product_id, options_from_collection_for_select(@user.distinct_products, :id, :name), class: 'form-control') %>
       </div>
       <div class="form-group">
-        <%= submit_tag "Journal this product", class: 'btn btn-default' %>
+        <%= submit_tag "Filter", class: 'btn btn-default' %>
+        <%= link_to "Clear", current_user, class: 'btn btn-default' %>
       </div>
     <% end %>
-    <div>
-      <a href="#"></a>
-    </div>
     <div class="list-group">
-      <% @user.reviews_by_rating.limit(8).each do |review| %>
+      <% if @product.present? %>
+        <% reviews = @user.reviews_by_rating.where(product_id: @product.id) %>
+      <% else %>
+        <% reviews = @user.reviews_by_rating %>
+      <% end %>
+
+      <% reviews.limit(12).each do |review| %>
         <%= link_to review.product, class: 'list-group-item' do %>
           <h4><%= review.product.name %></h4>
           <div>for <%= review.ailment.name %></div>
