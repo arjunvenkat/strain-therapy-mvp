@@ -19,6 +19,7 @@
 @import "font-awesome";
 
 $primary-color: #006E4B;
+$default-home-bg: #D9E3CC;
 
 /** Global **/
 
@@ -86,7 +87,7 @@ ul{
   text-align: center;
   color: white;
   border-radius: 100%;
-  font-size: 1.3em;
+  font-size: 1em;
   &:hover, &:visited, &:focus {
     color: white;
     text-decoration: none;
@@ -145,20 +146,20 @@ ul{
   text-align: center;
   a {
     display: inline-block;
-    background-color: lightgray;
+    background-color: $default-home-bg;
     color: black;
     width: 240px;
     padding: 30px;
     font-size: 2em;
     margin: 12px;
     text-decoration: none;
-    border: 1px solid gray;
+    // border: 1px solid gray;
   }
 
   a:hover {
     color: white;
-    background-color: gray;
-    border: 1px solid lightgray;
+    background-color: darken($default-home-bg, 30%);
+    // border: 1px solid $primary-color;
   }
 }
 
@@ -223,16 +224,17 @@ ul{
 
 /* Ailment */
 
-.ailment{
-  background-color: $primary-color;
-  color: white;
-  line-height: 180px;
-  border-radius: 100%;
-  .ailment-name {
-    margin-top: 0;
-    font-size: 2em;
-  }
-}
+// .ailment{
+//   background-color: $primary-color;
+//   color: white;
+//   line-height: 180px;
+//   border-radius: 100%;
+//   .ailment-name {
+//     margin-top: 0;
+//     // font-size: 2em;
+//     font-size: 0.8em;
+//   }
+// }
 
 .set-ailment{
   display: inline-block;
@@ -305,7 +307,7 @@ ul{
   line-height: 165px;
   text-align: center;
   color: white;
-  font-size: 2em;
+  font-size: 1em;
   border-radius: 50%;
   background-color: $primary-color;
   margin: 0 auto;

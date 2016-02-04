@@ -8,8 +8,8 @@
       <ul class="ailments">
         <% @ailments.all.each do |ailment| %>
         <li>
-          <div class="ailment-name">
-            <a href="<%= ailment_path(ailment) %>" class="ailment-name"><%= ailment.short_name %></a>
+          <div>
+            <a href="<%= ailment_path(ailment) %>" class="ailment-name"><%= ailment.name %></a>
           </div>
         </li>
         <% end %>

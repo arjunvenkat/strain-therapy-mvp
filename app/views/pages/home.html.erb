@@ -3,12 +3,12 @@
 <div class="jumbotron hero">
   <div class="hero-screen">
     <div class="container">
-      <h2 class="text-center">Medical Cannabis Has Been Used For 10,000 Years.</h2>
       <div class="home-links-container">
         <a href="/ailments">Learn</a>
         <a href="/reviews/new">Journal</a>
         <a href="/products">Discover</a>
       </div>
+      <h2 class="text-center">Medical Cannabis Has Been Used For Over 1,000 Years.</h2>
     </div>
   </div>
 </div>
@@ -25,9 +25,7 @@
           <ul class="ailments">
             <% Ailment.home_ailments.each do |ailment| %>
             <li>
-              <div class="ailment-name">
-                <a href="<%= ailment_path(ailment) %>" class="ailment-name"><%= ailment.short_name %></a>
-              </div>
+              <a href="<%= ailment_path(ailment) %>" class="ailment-name"><%= ailment.name %></a>
             </li>
             <% end %>
           </ul>
