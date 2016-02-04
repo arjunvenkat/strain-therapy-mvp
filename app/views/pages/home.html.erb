@@ -23,7 +23,7 @@
       <div class="col-md-7">
         <div class="ailments">
           <ul class="ailments">
-            <% Ailment.by_popularity.limit(6).each do |ailment| %>
+            <% Ailment.home_ailments.each do |ailment| %>
             <li>
               <div class="ailment-name">
                 <a href="<%= ailment_path(ailment) %>" class="ailment-name"><%= ailment.short_name %></a>

@@ -6,6 +6,8 @@ class Ailment < ActiveRecord::Base
 
   scope :by_popularity, -> { order('user_ailment_count desc') }
 
+  scope :home_ailments, -> { where(name: ['Anxiety Disorders', 'Chronic Pain', 'Depression', 'PTSD', 'Stress', 'Sleep Disorders']) }
+
   def short_name
     name.split.length > 1 ? name.split[0] : name
   end
