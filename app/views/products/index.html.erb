@@ -1,24 +1,31 @@
-<h1 class="text-center">Medical cannabis products</h1>
-<hr>
-<div class="row">
-  <% @products.each do |product| %>
-    <div class="col-md-2">
-      <div class="panel panel-default product">
-        <div class="panel-body">
-          <h4><%= link_to product.name, product  %></h4>
-          <div class="row">
-            <div class="col-md-8">
-              <%= select_tag :effectiveness, options_for_select(EFFECTIVENESS_RATINGS, product.avg_rating), class: 'rating' %>
-            </div>
-            <div class="col-md-4">
-              <div class="product-category-icon <%= product.category %>"><%= product.category[0].capitalize %></div>
+
+
+<div class="jumbotron hero hero-products">
+  <div class="hero-screen">
+  </div>
+</div>
+      <h1 class="page-heading">Explore Medical Cannabis Products</h1>
+
+<div class="container spacer-lg">
+  <div class="row">
+    <% @products.each do |product| %>
+      <div class="col-md-2">
+        <div class="panel panel-default product">
+          <div class="panel-body">
+            <h4><%= link_to product.name, product  %></h4>
+            <div class="row">
+              <div class="col-md-8">
+                <%= select_tag :effectiveness, options_for_select(EFFECTIVENESS_RATINGS, product.avg_rating), class: 'rating' %>
+              </div>
+              <div class="col-md-4">
+                <div class="product-category-icon <%= product.category %>"><%= product.category[0].capitalize %></div>
+              </div>
             </div>
           </div>
+          <div class="spacer"></div>
         </div>
-        <div class="spacer"></div>
       </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>
-
 

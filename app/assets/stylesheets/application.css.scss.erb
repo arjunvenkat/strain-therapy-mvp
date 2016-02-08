@@ -29,14 +29,23 @@ $default-home-bg: #D9E3CC;
 }
 
 footer {
-  background-color: lighten(lightgray, 10%);
+  background-color: $primary-color;
+  color: white;
   padding-top: 12em;
 
+}
+
+body{
+  background-color: $default-home-bg;
 }
 
 nav{
   padding: 10px;
   border-bottom: 2px solid gray;
+}
+
+.navbar-default .navbar-nav > li > a {
+  color: $primary-color;
 }
 
 .navbar {
@@ -139,41 +148,70 @@ ul{
   color: $primary-color;
 }
 
+/** Splash **/
+
+.splash-image{
+  width: 100%;
+  max-width: 600px;
+}
+
 /** Home **/
 
 .home-links-container {
-  margin-top: 24px;
   text-align: center;
   a {
     display: inline-block;
-    background-color: $default-home-bg;
-    color: black;
-    width: 240px;
+    border: 3px solid $primary-color;
+    color: $primary-color;
+    margin-bottom: 20px;
+    width: 100%;
     padding: 30px;
     font-size: 2em;
-    margin: 12px;
     text-decoration: none;
     // border: 1px solid gray;
   }
 
   a:hover {
     color: white;
-    background-color: darken($default-home-bg, 30%);
+    background-color: $primary-color;
     // border: 1px solid $primary-color;
   }
 }
+.page-heading {
+  background-color: $primary-color;
+  text-align: center;
+  color: white;
+  margin-bottom: 0;
+  margin-top: 0;
+  padding-bottom: 30px;
+  padding-top: 30px;
+}
 
 .hero {
-  background-image: url(<%= asset_path('cannabis2.png') %>);
   background-position: center top;
 
   padding-bottom: 0;
   padding-top: 0;
+  height: 300px;
 
   h2 {
     background-color: rgba(white, 0.9);
     padding: 24px;
   }
+}
+
+.hero-home {
+  background-image: url(<%= asset_path('cannabis2.png') %>);
+}
+
+.hero-ailments {
+  background-image: url(<%= asset_path('hero.png') %>);
+  background-size: auto 100%; 
+}
+
+.hero-products {
+  background-image: url(<%= asset_path('powered_cannabis.png') %>);
+  background-size: auto 100%; 
 }
 
 .jumbotron {
@@ -209,7 +247,8 @@ ul{
 .home-container {
   margin-top: 4em;
   p {
-    font-size: 1.4em;
+    text-align: center;
+    font-size: 1.65em;
   }
 
   img {

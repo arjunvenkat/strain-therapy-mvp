@@ -9,7 +9,9 @@ class AilmentsController < ApplicationController
     else
       @ailments = Ailment.by_popularity;
     end
+      render :layout => 'home'
   end
+
 
   # GET /ailments/1
   # GET /ailments/1.json

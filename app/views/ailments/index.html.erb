@@ -1,21 +1,24 @@
 
+<div class="jumbotron hero hero-ailments">
+  <div class="hero-screen">
+  </div>
+</div>
+      <h1 class="page-heading">Explore Ailments</h1>
 
-<div class="row">
-  <div class="col-md-12">
-    <h1 class="text-center">Explore ailments</h1>
-    <hr>
-    <div class="ailments spacer">
-      <ul class="ailments">
-        <% @ailments.all.each do |ailment| %>
-        <li>
-          <div>
-            <a href="<%= ailment_path(ailment) %>" class="ailment-name"><%= ailment.name %></a>
-          </div>
-        </li>
-        <% end %>
-      </ul>
-
-
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="ailments spacer">
+        <ul class="ailments">
+          <% @ailments.all.each do |ailment| %>
+          <li>
+            <div>
+              <a href="<%= ailment_path(ailment) %>" class="ailment-name"><%= ailment.name %></a>
+            </div>
+          </li>
+          <% end %>
+        </ul>
+      </div>
     </div>
   </div>
 </div>
