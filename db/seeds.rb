@@ -22,13 +22,13 @@ CSV.foreach("#{Rails.root}/db/data/ailments.csv", headers: true) do |row|
       description: row[9],
       featured: true
     )
-  (rand(5)+1).times do
-    ScientificEvidence.create(
-        ailment_id: a.id,
-        link: "http://google.com",
-        description: Faker::Lorem.paragraph,
-      )
-  end
+  # (rand(5)+1).times do
+  #   ScientificEvidence.create(
+  #       ailment_id: a.id,
+  #       link: "http://google.com",
+  #       description: Faker::Lorem.paragraph,
+  #     )
+  # end
 end
 puts "There are #{Ailment.count} ailments in the database"
 puts "There are #{ScientificEvidence.count} pieces of scientific evidence in the database"

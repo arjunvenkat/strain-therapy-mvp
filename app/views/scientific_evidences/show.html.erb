@@ -2,7 +2,7 @@
   <div class="col-md-8 col-md-offset-2">
     <h2>Evidence for Cannabis and <%= @scientific_evidence.ailment.name %></h2>
     <p><%= @scientific_evidence.description %></p>
-    <p><%= link_to 'link to research', @scientific_evidence.link, class: 'btn btn-default' %></p>
+    <p><%= link_to 'link to research', @scientific_evidence.link, class: 'btn btn-default', target: '_blank' %></p>
     <h4>Comments:</h4>
     <p><%= @scientific_evidence.comment %></p>
     <%= link_to 'Edit', edit_scientific_evidence_path(@scientific_evidence) %> |

@@ -30,7 +30,7 @@
         <a href="<%= new_review_url(ailment_id: @ailment.id) %>" class="btn btn-success btn-block btn-lg">Review a treatment for <%= @ailment.short_name %></a>
       </div>
       <div class="col-md-12 col-lg-6">
-        <a href="<%= @ailment.link %>" class="btn btn-default btn-block btn-lg">Read more about <%= @ailment.short_name %></a>
+        <a href="<%= @ailment.link %>" class="btn btn-default btn-block btn-lg" target="_blank">Read more about <%= @ailment.short_name %></a>
       </div>
     </div>
     <div class="spacer"></div>
