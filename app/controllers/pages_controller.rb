@@ -3,6 +3,10 @@ class PagesController < ApplicationController
     render :layout => 'home'
   end
 
+  def about
+    render :layout => 'home'
+  end
+
   def splash
     render :layout => 'home'
   end

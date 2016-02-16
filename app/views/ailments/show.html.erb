@@ -40,7 +40,7 @@
           Scientific evidence: Cannabis and <span class="inline-name"><%= @ailment.name %></span>
         </h3>
         <p><%= @ailment.featured_evidence.description %></p>
-        <p><%= link_to 'link to research', @ailment.featured_evidence.link, class: 'btn btn-default' %></p>
+        <p><%= link_to 'link to research', @ailment.featured_evidence.link, class: 'btn btn-default', target: "_blank" %></p>
         <p><strong>Have you found any evidence to share? Add below.</strong></p>
       </div>
       <ul class="list-group">
