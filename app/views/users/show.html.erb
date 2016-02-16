@@ -42,7 +42,7 @@
         <%= f.submit "Add ailment", class: 'btn btn-default' %>
       </div>
     <% end %>
-    <% @user.user_ailments.each do |uailment| %>
+    <% @user.alphabetical_user_ailments.each do |uailment| %>
         <h3>
           <%= link_to uailment.ailment.name, uailment.ailment %>
           <%= link_to user_ailment_path(uailment), class: 'btn btn-danger btn-sm', method: :delete do %>

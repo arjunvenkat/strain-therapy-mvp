@@ -13,6 +13,10 @@ class User < ActiveRecord::Base
   has_many :reviews
   has_many :products, through: :reviews
 
+  def alphabetical_user_ailments
+    user_ailments.joins(:ailment).order('ailments.name asc')
+  end
+
   def distinct_products
     products.distinct
   end

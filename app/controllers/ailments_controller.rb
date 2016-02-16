@@ -7,7 +7,7 @@ class AilmentsController < ApplicationController
     if params[:search].present?
       @ailments = Ailment.where("name LIKE ?", "%#{params[:search]}%")
     else
-      @ailments = Ailment.by_popularity;
+      @ailments = Ailment.by_alpha;
     end
       render :layout => 'home'
   end

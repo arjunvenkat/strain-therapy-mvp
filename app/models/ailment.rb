@@ -5,6 +5,7 @@ class Ailment < ActiveRecord::Base
   has_many :users, through: :user_ailments
 
   scope :by_popularity, -> { order('user_ailment_count desc') }
+  scope :by_alpha, -> { order('name asc') }
 
   scope :home_ailments, -> { where(name: ['Anxiety Disorders', 'Chronic Pain', 'Depression', 'PTSD', 'Stress', 'Sleep Disorders']) }
 
