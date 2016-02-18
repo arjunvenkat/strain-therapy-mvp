@@ -31,8 +31,15 @@ $default-home-bg: #D9E3CC;
 footer {
   background-color: $primary-color;
   color: white;
-  padding-top: 12em;
-
+  padding-top: 6em;
+  a, a:hover {
+    color: white;
+  }
+  a:hover {
+    text-decoration: none;
+    padding-bottom: 0.2em;
+    border-bottom: 2px solid white;
+  }
 }
 
 body{
@@ -557,6 +564,12 @@ ul{
 
 .container {
   padding-bottom: 4em;
+}
+
+.navbar-default .navbar-nav > li > a:hover span,  {
+  padding-bottom: 0.2em;
+  border-bottom: 2px solid darken($primary-color, 10%);
+
 }
 
 .list-group-horizontal .list-group-item {

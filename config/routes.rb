@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   root to: "pages#splash"
-  get 'pages/home', as: 'home'
-  get 'about' => 'pages#about', as: 'about'
+  get '/pages/home', as: 'home'
+  get '/about' => 'pages#about', as: 'about'
+  get '/privacy' => 'pages#privacy', as: 'privacy'
   resources :reviews, except: :index
   resources :user_ailments do
     post 'from_profile', on: :collection

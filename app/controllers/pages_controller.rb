@@ -10,4 +10,8 @@ class PagesController < ApplicationController
   def splash
     render :layout => 'home'
   end
+
+  def privacy
+    render :layout => 'home'
+  end
 end
