@@ -62,7 +62,7 @@
 
       </div>
         <div class="list-group">
-          <% @ailment.reviews.each do |review| %>
+          <% @ailment.reviews.order(created_at: :desc).each do |review| %>
             <%= link_to review, class: 'list-group-item' do  %>
               <%= render 'reviews/list_group_review', review: review, context: 'ailment' %>
             <% end %>

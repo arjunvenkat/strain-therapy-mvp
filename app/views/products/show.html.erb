@@ -93,7 +93,7 @@
         </h2>
       </div>
       <div class="list-group">
-        <% @product.reviews.each do |review| %>
+        <% @product.reviews.order(created_at: :desc).each do |review| %>
           <%= link_to review, class: 'list-group-item' do  %>
             <%= render 'reviews/list_group_review', review: review, context: 'product' %>
           <% end %>
