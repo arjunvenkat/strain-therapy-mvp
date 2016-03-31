@@ -22,4 +22,30 @@ namespace :fake do
     end
     puts "There are #{Review.count} fake reviews in the database"
   end
+
+  desc "Create fake product data"
+  task reviews: :environment do
+    Product.create(name: "Blue Dream " , strain_type: "Hybrid", category: "concentrates")
+    Product.create(name: "Sour Diesel" , strain_type: "Sativa", category: "concentrates")
+    Product.create(name: "OG Kush" , strain_type: "Hybrid", category: "concentrates")
+    Product.create(name: "Girl Scout Cookies " , strain_type: "Hybrid", category: "concentrates")
+    Product.create(name: "Grand Daddy Purple " , strain_type: "Indica", category: "concentrates")
+    Product.create(name: "White Widow" , strain_type: "Hybrid", category: "concentrates")
+    Product.create(name: "Jack Herer " , strain_type: "Sativa", category: "concentrates")
+    Product.create(name: "Bubba Kush " , strain_type: "Indica", category: "flowers")
+    Product.create(name: "Train Wreck" , strain_type: "Hybrid", category: "flowers")
+    Product.create(name: "AK 47" , strain_type: "Hybrid", category: "flowers")
+    Product.create(name: "Bluecheese " , strain_type: "Indica", category: "flowers")
+    Product.create(name: "Green Crack" , strain_type: "Sativa", category: "flowers")
+    Product.create(name: "Pineapple Express" , strain_type: "Hybrid", category: "flowers")
+    Product.create(name: "Purple Kush" , strain_type: "Indica", category: "edibles")
+    Product.create(name: "Northern Lights" , strain_type: "Indica", category: "edibles")
+    Product.create(name: "Headband " , strain_type: "Hybrid", category: "edibles")
+    Product.create(name: "Alaskan Thunderfuck" , strain_type: "Sativa", category: "edibles")
+    Product.create(name: "Bubble Kush" , strain_type: "Indica", category: "edibles")
+    Product.create(name: "Blackberry Kush" , strain_type: "Indica", category: "edibles")
+    Product.create(name: "Lemon Haze " , strain_type: "Sativa", category: "edibles")
+    Product.create(name: "Super Silver Haze" , strain_type: "Sativa", category: "edibles")
+    puts "There are #{Product.count} products in the database"
+  end
 end

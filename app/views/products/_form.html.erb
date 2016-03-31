@@ -1,45 +1,32 @@
-<%= form_for(@product) do |f| %>
-  <% if @product.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>
+<div class="row">
+  <div class="col-md-4">
+    <%= form_for(@product) do |f| %>
+      <% if @product.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>
 
-      <ul>
-      <% @product.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+          <ul>
+          <% @product.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+      <div class="form-group">
+        <%= f.label :name %><br>
+        <%= f.text_field :name, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :category %><br>
+        <%= f.select :category, options_for_select(PRODUCT_CATEGORIES, @product.category), {}, class: 'form-control' %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit class: 'btn btn-default' %>
+      </div>
+    <% end %>
   </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
-  </div>
-  <div class="field">
-    <%= f.label :category %><br>
-    <%= f.text_field :category %>
-  </div>
-  <div class="field">
-    <%= f.label :thc %><br>
-    <%= f.text_field :thc %>
-  </div>
-  <div class="field">
-    <%= f.label :cbd %><br>
-    <%= f.text_field :cbd %>
-  </div>
-  <div class="field">
-    <%= f.label :cbc %><br>
-    <%= f.text_field :cbc %>
-  </div>
-  <div class="field">
-    <%= f.label :cbn %><br>
-    <%= f.text_field :cbn %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>
+

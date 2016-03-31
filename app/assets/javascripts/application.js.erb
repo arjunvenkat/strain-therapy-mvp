@@ -72,19 +72,29 @@
 
 function filterAvailableMethods(selectedCategory) {
   var potentialMethods = {
-    "flowers": 'smoke, vape',
-    "concentrates": 'vape, tincture',
-    "edibles": 'food, beverages, topicals'
+    "food": 'food',
+    "flowers": 'smoke',
+    "wax": 'smoke',
+    "tincture": 'tincture',
+    "beverage": 'beverage',
+    "topical": 'topical'
   }
   var availableMethods = potentialMethods[selectedCategory];
+  var initialSelectionApplied = false;
   $('#review_method').siblings(".box-select-container").find('a').each(function(){
       // alert(selectedCategory + "---" + availableMethods);
     if (potentialMethods[selectedCategory].indexOf(this.textContent) >= 0) {
       $(this).show();
+      if (initialSelectionApplied == false) {
+        console.log($(this));
+        $(this).addClass('selected');
+      }
     } else {
       $(this).hide();
     }
   });
+  // $('#review_method').siblings(".box-select-container").children().removeClass('selected');
+  // $('#review_method').siblings(".box-select-container").children().first().addClass('selected');
 }
 
 function changeMethodOnHiddenForm($methodForm, selectedMethod ) {
@@ -96,8 +106,11 @@ function changeMethodOnHiddenForm($methodForm, selectedMethod ) {
 function changeDisplayForAmountSelection($amountForm, selectedCategory) {
   var consumptionData = {
     "flowers": "under 0.5g, 0.5g to 1.0g, over 1.0g",
-    "concentrates": "1-2 uses, 3-4 uses, 5 or more uses",
-    "edibles": "under 5mg, 5-10mg, over 10mg",
+    "wax": "under 0.5g, 0.5g to 1.0g, over 1.0g",
+    "beverage": "1-2 uses, 3-4 uses, 5 or more uses",
+    "topical": "1-2 uses, 3-4 uses, 5 or more uses",
+    "tincture": "1-2 uses, 3-4 uses, 5 or more uses",
+    "food": "under 5mg, 5-10mg, over 10mg",
   }
   var vals = consumptionData[selectedCategory].split(',');
   $amountBoxes = $amountForm.siblings('.br-widget').find('a');

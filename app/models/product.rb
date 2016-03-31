@@ -1,5 +1,5 @@
 class Product < ActiveRecord::Base
-  has_many :reviews
+  has_many :reviews, dependent: :destroy
 
   def name_with_category
     "#{name} - #{category}"

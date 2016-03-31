@@ -16,9 +16,6 @@ class ReviewsController < ApplicationController
   # GET /reviews/new
   def new
     @review = Review.new(ailment_id: params[:ailment_id], product_id: params[:product_id])
-    response = Unirest.get "https://www.cannabisreports.com/api/v1.0/dispensaries",
-              headers:{ "X-API-Key" => "f2b56a96dfecec56c8b032a586a25214e1fe0998" }
-    @data = response.body["data"].to_json.html_safe
   end
 
   # GET /reviews/1/edit

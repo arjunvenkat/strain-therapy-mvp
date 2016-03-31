@@ -23,14 +23,15 @@
       <div class="form-group">
         <%= f.label :product_id %>
         <%= f.collection_select :product_id, Product.all, :id, :name_with_category, {}, class: 'form-control' %>
+        <div>Don't see your product? <%= link_to "Add a new product", new_product_path %></div>
       </div>
       <div class="form-group">
         <%= f.label :dispensary %><br>
        <!--  <select name="" id="test">
           <option value="1">option 1</option>
         </select> -->
-        <input type="hidden" id="test">
-        <%#= f.select :dispensary, Product.all, :id, :name_with_category, {}, class: 'form-control' %>
+        <!-- <input type="hidden" id="test"> -->
+        <%= f.collection_select :dispensary, Dispensary.all, :id, :name_with_address, {}, class: 'form-control' %>
       </div>
       <div class="form-group">
         <%= f.label :method %>
@@ -65,15 +66,7 @@
 </div>
 
 <script>
-  var data = [{ id: 0, text: 'enhancement' }, { id: 1, text: 'bug' }, { id: 2, text: 'duplicate' }, { id: 3, text: 'invalid' }, { id: 4, text: 'wontfix' }];
-  var data = []
-  var jsonData = <%= @data %>;
-  console.log(jsonData);
-  for(i=0; i < jsonData.length; i++) {
-    data.push({id: jsonData[i].name + " - " + jsonData[i].city,
-              text: jsonData[i].name + " - " + jsonData[i].city})
-  }
-
-  $('#test').select2({data: data});
+  $('#review_dispensary').select2({placeholder: "Select a dispensary"});
+  $('#review_product_id').select2({placeholder: "Select a product"});
 </script>
 

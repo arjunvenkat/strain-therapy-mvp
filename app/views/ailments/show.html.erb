@@ -59,18 +59,18 @@
         <h2>
           <span class="inline-name"><%= @ailment.name %></span> treatment reviews
         </h2>
-        <hr>
-        <div>
-          <% @ailment.reviews.each do |review| %>
-            <div class="row">
-              <%= render 'reviews/short_review', review: review, context: 'ailment' %>
-            </div>
-            <hr>
-          <% end %>
-          <a href="<%= new_review_url(ailment_id: @ailment.id) %>" class="btn btn-success btn-block">Review a treatment for <%= @ailment.name %></a>
-        </div>
+
       </div>
+        <div class="list-group">
+          <% @ailment.reviews.each do |review| %>
+            <%= link_to review, class: 'list-group-item' do  %>
+              <%= render 'reviews/list_group_review', review: review, context: 'ailment' %>
+            <% end %>
+          <% end %>
+        </div>
     </div>
+    <a href="<%= new_review_url(ailment_id: @ailment.id) %>" class="btn btn-success btn-block">Review a treatment for <%= @ailment.name %></a>
+
     <h5 class="spacer hidden-md hidden-lg">Top rated: <%= @ailment.short_name %></h5>
     <div class="list-group top-rated-products hidden-md hidden-lg">
       <% @ailment.best_products(6).each do |product_array| %>

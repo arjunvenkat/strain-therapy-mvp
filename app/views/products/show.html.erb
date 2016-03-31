@@ -7,7 +7,7 @@
     </div>
     <div class="col-md-8">
       <h1><%= @product.name %> <small><%= @product.strain_type %></small></h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe nam delectus earum quo consequuntur minima perspiciatis! Suscipit unde exercitationem nisi ullam voluptas molestiae reiciendis animi inventore corporis perferendis! Voluptatum, corporis! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam quo cupiditate fuga nostrum ex, nemo magni deserunt nisi ad voluptate recusandae ab, ipsa, quidem, excepturi optio? Quasi consectetur, autem facere.</p>
+      <h4>Description coming soon!</h4>
       <a href="<%= new_review_url(product_id: @product.id) %>" class="btn btn-success btn-block">Add a journal entry for <%= @product.name %></a>
     </div>
   </div>
@@ -27,7 +27,7 @@
 
     </div>
   </div>
-  <div class="row spacer">
+<!--   <div class="row spacer">
     <div class="col-md-3">
       <div class="chemical-content">
         <h3>THC</h3>
@@ -52,7 +52,7 @@
         <div class="number">4%</div>
       </div>
     </div>
-  </div>
+  </div> -->
 </div>
 
 <div class="row spacer">
@@ -91,18 +91,16 @@
         <h2>
           Recent member reviews of <span class="inline-name"><%= @product.name %></span>
         </h2>
-        <hr>
-        <div>
-          <% @product.reviews.each do |review| %>
-            <div class="row">
-              <%= render 'reviews/short_review', review: review, context: 'product' %>
-            </div>
-            <hr>
+      </div>
+      <div class="list-group">
+        <% @product.reviews.each do |review| %>
+          <%= link_to review, class: 'list-group-item' do  %>
+            <%= render 'reviews/list_group_review', review: review, context: 'product' %>
           <% end %>
-          <a href="<%= new_review_url(product_id: @product.id) %>" class="btn btn-success btn-block">Add a journal entry for <%= @product.name %></a>
-        </div>
+        <% end %>
       </div>
     </div>
+    <a href="<%= new_review_url(product_id: @product.id) %>" class="btn btn-success btn-block">Add a journal entry for <%= @product.name %></a>
   </div>
 </div>
 
