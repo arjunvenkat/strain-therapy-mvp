@@ -18,7 +18,7 @@ namespace :import do
   desc "Imports dispensary data from a CSV"
   task dispensaries: :environment do
     CSV.foreach("#{Rails.root}/db/data/dispensaries.csv", headers: true) do |row|
-      unless Dispensary.find_by(llc_name: row[0], name: row[1], code: row[2]]).present?
+      unless Dispensary.find_by(llc_name: row[0], name: row[1], code: row[2]).present?
         Dispensary.create(
             llc_name: row[0],
             name: row[1],
