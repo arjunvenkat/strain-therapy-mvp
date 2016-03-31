@@ -7,6 +7,18 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @product = Product.find_by(id: params[:product_id])
+    if @product.present?
+      @reviews = @user.reviews_by_rating.where(product_id: @product.id)
+    else
+      @reviews = @user.reviews_by_rating
+    end
+
+
+    if params[:sort_by].present?
+
+      @reviews = @reviews.order(params[:sort_by])
+      # @reviews = @reviews.order(sort_hash[params[:sort_by]])
+    end
 
   end
 

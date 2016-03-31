@@ -18,14 +18,16 @@ namespace :import do
   desc "Imports dispensary data from a CSV"
   task dispensaries: :environment do
     CSV.foreach("#{Rails.root}/db/data/dispensaries.csv", headers: true) do |row|
-      Dispensary.create(
-          llc_name: row[0],
-          name: row[1],
-          code: row[2],
-          address: row[3],
-          city: row[4],
-          zip: row[5]
-        )
+      unless Dispensary.find_by(llc_name: row[0], name: row[1], code: row[2]]).present?
+        Dispensary.create(
+            llc_name: row[0],
+            name: row[1],
+            code: row[2],
+            address: row[3],
+            city: row[4],
+            zip: row[5]
+          )
+      end
     end
     puts "There are #{Dispensary.count} dispensaries in the database"
   end
@@ -44,10 +46,12 @@ namespace :import do
       # else
       #   category = csv_category
       # end
-      Product.create(
-          category: row[0].downcase,
-          name: row[1]
-        )
+      unless Product.find_by(category: row[0].downcase, name: row[1])
+        Product.create(
+            category: row[0].downcase,
+            name: row[1]
+          )
+      end
     end
     puts "There are #{Product.count} products in the database"
   end
