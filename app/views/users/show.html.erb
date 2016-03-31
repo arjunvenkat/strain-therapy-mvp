@@ -3,6 +3,7 @@
   <%= @user.username %>'s profile
   <small><%= link_to "edit user info", edit_user_registration_path %></small>
 </h1>
+<h4>You're a <%= @user.zodiac_sign %> and your preferred method is <%= @user.preferred_method %></h4>
 
 <div class="row">
   <div class="col-md-9">

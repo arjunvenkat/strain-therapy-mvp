@@ -73,8 +73,8 @@
 function filterAvailableMethods(selectedCategory) {
   var potentialMethods = {
     "food": 'food',
-    "flowers": 'smoke',
-    "wax": 'smoke',
+    "flowers": 'smoke, vape',
+    "wax": 'smoke, vape',
     "tincture": 'tincture',
     "beverage": 'beverage',
     "topical": 'topical'
@@ -88,6 +88,7 @@ function filterAvailableMethods(selectedCategory) {
       if (initialSelectionApplied == false) {
         console.log($(this));
         $(this).addClass('selected');
+        initialSelectionApplied = true;
       }
     } else {
       $(this).hide();

@@ -1,6 +1,6 @@
+<%= form_for(@review) do |f| %>
 <div class="row">
-  <div class="col-md-5">
-    <%= form_for(@review) do |f| %>
+  <div class="col-sm-5">
       <% if @review.errors.any? %>
         <div id="error_explanation">
           <h2><%= pluralize(@review.errors.count, "error") %> prohibited this review from being saved:</h2>
@@ -18,11 +18,11 @@
       <div class="form-group">
         <%= f.label :ailment_id %>
         <div><%= link_to 'Add more ailments', current_user %> to increase your choices</div>
-        <%= f.collection_select :ailment_id, current_user.ailments, :id, :name, {}, class: 'form-control' %>
+        <%= f.collection_select :ailment_id, current_user.ailments.by_alpha, :id, :name, {include_blank: true}, class: 'form-control' %>
       </div>
       <div class="form-group">
         <%= f.label :product_id %>
-        <%= f.collection_select :product_id, Product.all, :id, :name_with_category, {}, class: 'form-control' %>
+        <%= f.collection_select :product_id, Product.all, :id, :name_with_category, {include_blank: true}, class: 'form-control' %>
         <div>Don't see your product? <%= link_to "Add a new product", new_product_path %></div>
       </div>
       <div class="form-group">
@@ -31,12 +31,14 @@
           <option value="1">option 1</option>
         </select> -->
         <!-- <input type="hidden" id="test"> -->
-        <%= f.collection_select :dispensary, Dispensary.all, :id, :name_with_address, {}, class: 'form-control' %>
+        <%= f.collection_select :dispensary, Dispensary.all, :id, :name_with_address, {include_blank: true}, class: 'form-control' %>
       </div>
       <div class="form-group">
         <%= f.label :method %>
         <%= f.select :method, CONSUMPTION_METHODS, {}, class: 'form-control box-select' %>
       </div>
+    </div>
+    <div class="col-sm-5">
       <div class="form-group">
         <%= f.label :amount %>
         <%= f.select :amount, CONSUMPTION_AMOUNTS, {}, class: 'form-control rating-form' %>
@@ -58,15 +60,19 @@
         <%= f.text_area :additional_info, class: 'form-control' %>
       </div>
       <div class="actions">
+        <%= f.submit class: 'btn btn-success' %>
       </div>
-        <%= f.submit class: 'btn btn-default' %>
-    <% end %>
+
 
   </div>
+
 </div>
+
+<% end %>
 
 <script>
   $('#review_dispensary').select2({placeholder: "Select a dispensary"});
-  $('#review_product_id').select2({placeholder: "Select a product"});
+  $('#review_product_id').select2({placeholder: "Select a product or product type"});
+  $('#review_ailment_id').select2({placeholder: "Select an ailment"});
 </script>
 
