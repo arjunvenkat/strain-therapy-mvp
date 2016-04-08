@@ -4,7 +4,11 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    @products = Product.all
+    if params[:filter]
+      @products = Product.where(category: params[:filter])
+    else
+      @products = Product.all
+    end
     render :layout => 'home'
   end
 

@@ -7,6 +7,13 @@
       <h1 class="page-heading">Explore Medical Cannabis Products</h1>
 
 <div class="container spacer-lg">
+  <h2>Filter by product <small><%= link_to "reset", products_path  %></small></h2>
+  <div class="product-filter-container <%= params[:filter] %>">
+    <% PRODUCT_CATEGORIES.each do |category| %>
+      <%= link_to category, products_path(filter: category), class: "option #{category}" %>
+    <% end %>
+  </div>
+  <hr>
   <div class="row">
     <% @products.each do |product| %>
       <div class="col-md-3">
