@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root to: "pages#splash"
+  get '/admin' => 'pages#admin', as: 'admin'
   get '/pages/home', as: 'home'
   get '/about' => 'pages#about', as: 'about'
   get '/privacy' => 'pages#privacy', as: 'privacy'

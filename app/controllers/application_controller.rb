@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
 
   before_action :configure_permitted_parameters, if: :devise_controller?
-
+  before_action :user_activity
   def after_sign_in_path_for(resource)
     user_path(current_user)
   end
@@ -18,4 +18,9 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:account_update) << :preferred_method
     devise_parameter_sanitizer.for(:account_update) << :zodiac_sign
   end
+
+  def user_activity
+    current_user.try :touch
+  end
+
 end

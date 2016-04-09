@@ -14,4 +14,8 @@ class PagesController < ApplicationController
   def privacy
     render :layout => 'home'
   end
+
+  def admin
+
+  end
 end

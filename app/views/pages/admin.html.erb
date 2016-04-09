@@ -1,0 +1,28 @@
+<h1>Site Dashboard</h1>
+<hr>
+<div class="row">
+  <div class="col-md-2">
+    <div class="admin-dashboard">
+      <div class="number">
+        <%= User.online.count %>
+      </div>
+      <div><%= "user".pluralize(User.online.count) %> online</div>
+    </div>
+  </div>
+  <div class="col-md-2">
+    <div class="admin-dashboard">
+      <div class="number">
+        <%= User.count %>
+      </div>
+      <div><%= "profile".pluralize(User.count) %> created</div>
+    </div>
+  </div>
+  <div class="col-md-2">
+    <div class="admin-dashboard">
+      <div class="number">
+        <%= Review.count %>
+      </div>
+      <div><%= "review".pluralize(Review.count) %> created</div>
+    </div>
+  </div>
+</div>

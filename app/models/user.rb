@@ -13,6 +13,8 @@ class User < ActiveRecord::Base
   has_many :reviews
   has_many :products, through: :reviews
 
+  scope :online, lambda{ where("updated_at > ?", 10.minutes.ago) }
+
   def alphabetical_user_ailments
     user_ailments.joins(:ailment).order('ailments.name asc')
   end
@@ -32,4 +34,6 @@ class User < ActiveRecord::Base
   def email_changed?
     false
   end
+
+
 end

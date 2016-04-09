@@ -12,12 +12,8 @@ class UsersController < ApplicationController
     else
       @reviews = @user.reviews_by_rating
     end
-
-
     if params[:sort_by].present?
-
       @reviews = @reviews.order(params[:sort_by])
-      # @reviews = @reviews.order(sort_hash[params[:sort_by]])
     end
 
   end
